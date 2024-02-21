@@ -1,4 +1,4 @@
-import { useState,useContext,useEffect } from "react";
+import { useState,useContext} from "react";
 import { UsersContext } from "../context/usersContext";
 
 export default function Register() {
@@ -16,7 +16,7 @@ const [street, setStreet] = useState("");
 const [number, setNumber] = useState("");
   
 //ייבוא של הפונקציה מתוך הקונטקס
-const {registerUser,LoadUsers} = useContext<any>(UsersContext);
+const {registerUser} = useContext<any>(UsersContext);
 
 function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
@@ -33,6 +33,20 @@ function handleSubmit(event: { preventDefault: () => void; }) {
             street,
             number,
         });
+        
+        // ניקוי הטופס אחרי ההרשמה
+        setUserName("");
+        setPassword("");
+        setPassword2("");
+        setImg("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setDate("");
+        setCity("");
+        setStreet("");
+        setNumber("");
+
     };
 
 

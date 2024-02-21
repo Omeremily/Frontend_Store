@@ -10,11 +10,12 @@ export default function UsersContextProvider({ children}:any) {
     //Register user: פונקציה המקבלת את כל פרטי המשתמש, יוצרת משתמש חדש ומוסיפה
     //אותו למאגר המשתמשים
     function registerUser(user:any){
-        //הוספת החשבון החדש למערך
-        setUsers(prevUsers => [...prevUsers, user]);
-    
-        //שמירה של המערך המעודכן בלוקל סטורג
-        SaveToLocal([...users, user]);
+        // Update the state using a callback
+        setUsers(prevUsers => {
+            const updatedUsers = [...prevUsers, user];
+            SaveToLocal(updatedUsers);
+            return updatedUsers;
+        });
     }
     
 
