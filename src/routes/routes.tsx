@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Store from "../pages/Store";
 import Item from "../pages/Item";
+import Register from "../pages/Register";
 
 export const routes= createBrowserRouter([
     {
@@ -20,6 +21,11 @@ export const routes= createBrowserRouter([
     {
         path:'/item/:product',
         element:<Item/>
+    },
+    {
+        path:'/register',
+        element:<Register/>
+
     }
 
 ])
