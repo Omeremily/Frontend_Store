@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UsersContext = createContext({});
 
@@ -10,28 +10,38 @@ export default function UsersContextProvider({ children}:any) {
     //Register user: פונקציה המקבלת את כל פרטי המשתמש, יוצרת משתמש חדש ומוסיפה
     //אותו למאגר המשתמשים
     function registerUser(user:any){
-
         //הוספת החשבון החדש למערך
-        setUsers([...users,user]);
+        setUsers(prevUsers => [...prevUsers, user]);
     
         //שמירה של המערך המעודכן בלוקל סטורג
-        SaveToLocal(user);
-    
+        SaveToLocal([...users, user]);
     }
     
-    function LoadUsers(){
 
-        let data= localStorage.getItem('users');
-        return JSON.parse(data) || new Array();
-        
-    }
+    useEffect(() => {
+        // Load users from localStorage when component mounts
+        const data: string | null = localStorage.getItem('users');
+        if (data !== null) {
+            setUsers(JSON.parse(data));
+        }
+    }, []);
+
+    // function LoadUsers(){
+    //     let data: string | null = localStorage.getItem('users');
+    //     if (data !== null) {
+    //         let parsedData = JSON.parse(data);
+    //         return parsedData;
+    //     } else {
+    //         return new Array();
+    //     }
+    // }
     
-    function SaveToLocal(user:any)//(users)
+    function SaveToLocal(users:any[])
     {
-        localStorage.setItem('users',JSON.stringify(users));
+        localStorage.setItem('users', JSON.stringify(users));
     }
 
-    function DeleteUser(event){
+    function DeleteUser(event: { target: { parentNode: any; }; }){
         let td = event.target.parentNode;
         let tr = td.parentNode;
       
@@ -53,7 +63,7 @@ export default function UsersContextProvider({ children}:any) {
     const value={
         users,
         registerUser,
-        LoadUsers,
+        //LoadUsers,
         SaveToLocal,
         DeleteUser
     }

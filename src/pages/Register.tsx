@@ -1,4 +1,4 @@
-import { FormEvent, useState,useContext } from "react";
+import { useState,useContext,useEffect } from "react";
 import { UsersContext } from "../context/usersContext";
 
 export default function Register() {
@@ -15,25 +15,45 @@ const [city, setCity] = useState("");
 const [street, setStreet] = useState("");
 const [number, setNumber] = useState("");
   
-const {users, registerUser} = useContext<any>(UsersContext);
+//ייבוא של הפונקציה מתוך הקונטקס
+const {registerUser,LoadUsers} = useContext<any>(UsersContext);
+
+function handleSubmit(event: { preventDefault: () => void; }) {
+    event.preventDefault();
+
+        registerUser({
+            userName,
+            password,
+            img,
+            firstName,
+            lastName,
+            email,
+            date,
+            city,
+            street,
+            number,
+        });
+    };
 
 
     return (
     <>
       <h1>Register</h1>
-      <form onSubmit={registerUser}>
-        <input type="text" id="username" placeholder="Add user name"/>
-        <input type="password" id="password" placeholder="Add password"/>
-        <input type="password" id="password2" placeholder="Repeat password"/>
-        <input type="file" id="img"/>
-        <input type="text" id="firstName" placeholder="Add first name"/>
-        <input type="text" id="lastName" placeholder="Add last name"/>
-        <input type="email" id="email" placeholder="Add email"/>
-        <input type="date" id="date"/>
-        <input type="text" id="city" placeholder="Add city"/>
-        <input type="text" id="street" placeholder="Add street"/>
-        <input type="number" id="number" placeholder="Add number"/>
+      <form onSubmit={handleSubmit}>
+        <input type="text" id="username" placeholder="Add user name" value={userName} onChange={(e) => setUserName(e.target.value)}/>
+        <input type="password" id="password" placeholder="Add password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <input type="password" id="password2" placeholder="Repeat password" value={password2} onChange={(e) => setPassword2(e.target.value)}/>
+        <input type="file" id="img" placeholder="Add img" value={img} onChange={(e) => setImg(e.target.value)}/>
+        <input type="text" id="firstName" placeholder="Add first name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+        <input type="text" id="lastName" placeholder="Add last name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+        <input type="email" id="email" placeholder="Add email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <input type="date" id="date" placeholder="Add date" value={date} onChange={(e) => setDate(e.target.value)}/>
+        <input type="text" id="city" placeholder="Add city" value={city} onChange={(e) => setCity(e.target.value)}/>
+        <input type="text" id="street" placeholder="Add street" value={street} onChange={(e) => setStreet(e.target.value)}/>
+        <input type="number" id="number" placeholder="Add number" value={number} onChange={(e) => setNumber(e.target.value)}/>
+        <button type="submit">Register</button>
       </form>
+      
     </>
   )
 }
