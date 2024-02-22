@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Nav from "../components/Nav"
+import NavBar from "../components/NavBar"
 import { Link } from "react-router-dom"
 
 export default function Store() {
@@ -13,7 +13,7 @@ export default function Store() {
     ])
   return (
     <>
-        <Nav/>
+        <NavBar/>
         <div>
             {
                 products.map((product)=><Link to={`/item/${product}`}>{product} &nbsp;</Link>)
