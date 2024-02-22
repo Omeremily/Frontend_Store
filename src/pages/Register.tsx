@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { UsersContext } from "../context/usersContext";
+import NavBar from "../components/NavBar";
 
 export default function Register() {
   const [userName, setUserName] = useState("");
@@ -71,6 +72,7 @@ export default function Register() {
 
   return (
     <>
+      <NavBar />
       <h1>Register</h1>
       {alertField && <div>{alertField}</div>}
       <form onSubmit={handleSubmit}>
