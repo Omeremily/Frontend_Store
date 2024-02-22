@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import { Container,Nav,Navbar as NavbarBs, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
 
-    <NavbarBs className="bg-white shadow-sm mb-3">
+    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
             <Nav.Link to="/" as={NavLink}>Home</Nav.Link>
