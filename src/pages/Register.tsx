@@ -18,6 +18,14 @@ const [number, setNumber] = useState("");
 //ייבוא של הפונקציה מתוך הקונטקס
 const {registerUser} = useContext<any>(UsersContext);
 
+//בדיקות 
+
+// // Function to check if the username is valid
+// const isUserNameValidCheck = (value: string) => {
+//     const regex = /^[A-Za-z0-9@$!%*?&#^_-]+$/; // Accepts only English letters, numbers, and special characters
+//     return value.length <= 60 && regex.test(value);
+//   };
+
 function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
 
@@ -54,7 +62,7 @@ function handleSubmit(event: { preventDefault: () => void; }) {
     <>
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" id="username" placeholder="Add user name" value={userName} onChange={(e) => setUserName(e.target.value)}/>
+        <input type="text" id="username" placeholder="Add user name" value={userName} onChange={(e) => setUserName(e.target.value)} />
         <input type="password" id="password" placeholder="Add password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <input type="password" id="password2" placeholder="Repeat password" value={password2} onChange={(e) => setPassword2(e.target.value)}/>
         <input type="file" id="img" placeholder="Add img" value={img} onChange={(e) => setImg(e.target.value)}/>
