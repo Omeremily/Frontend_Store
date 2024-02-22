@@ -12,7 +12,11 @@ export default function NavBar() {
             <Nav.Link to="/register" as={NavLink}>Register</Nav.Link>
             <Nav.Link to="/about" as={NavLink}>About</Nav.Link>
         </Nav>
-        <Button></Button>
+        <Button style={{width: "3rem", height: "3rem"}}>
+            <svg>
+
+            </svg>
+        </Button>
       </Container>
     </NavbarBs>
 
