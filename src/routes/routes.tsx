@@ -19,7 +19,7 @@ export const routes= createBrowserRouter([
         element:<Store/>
     },
     {
-        path:'/item/:product',
+        path:'/item/:product', // הפניות דינאמיות למוצרים בתוך החנות
         element:<Item/>
     },
     {

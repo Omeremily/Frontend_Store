@@ -42,31 +42,31 @@ export default function UsersContextProvider({ children}:any) {
         localStorage.setItem('users', JSON.stringify(users));
     }
 
-    function DeleteUser(event: { target: { parentNode: any; }; }){
-        let td = event.target.parentNode;
-        let tr = td.parentNode;
+    // function DeleteUser(event: { target: { parentNode: any; }; }){
+    //     let td = event.target.parentNode;
+    //     let tr = td.parentNode;
       
-        // מציאת האינדקס של היוזר הספציפי בטבלה
-        let rowIndex = Array.from(tr.parentNode.children).indexOf(tr)-1;
+    //     // מציאת האינדקס של היוזר הספציפי בטבלה
+    //     let rowIndex = Array.from(tr.parentNode.children).indexOf(tr)-1;
       
-        // הסרה מהמערך
-        if (users && users.length > rowIndex) {
-          users.splice(rowIndex, 1);
+    //     // הסרה מהמערך
+    //     if (users && users.length > rowIndex) {
+    //       users.splice(rowIndex, 1);
       
-        // שמירה של המערך המעודכן
-          SaveToLocal(users);
-        }
+    //     // שמירה של המערך המעודכן
+    //       SaveToLocal(users);
+    //     }
       
-        // הסרה מהטבלה שאנחנו רואים באתר
-        tr.remove();
-      }
+    //     // הסרה מהטבלה שאנחנו רואים באתר
+    //     tr.remove();
+    //   }
 
     const value={
         users,
         registerUser,
         //LoadUsers,
         SaveToLocal,
-        DeleteUser
+        //DeleteUser
     }
 
 
