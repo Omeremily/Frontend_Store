@@ -2,7 +2,7 @@ import { Card } from 'react-bootstrap';
 import { StoreItemProps } from '../types/storeTypes';
 import { formatCurrency } from '../utilities/formatCurrency';
 
-export default function StoreItem({id, name, price,salePrice, imgUrl}: StoreItemProps)
+export default function StoreItem({name, price,salePrice, imgUrl}: StoreItemProps)
  {
 
   return (

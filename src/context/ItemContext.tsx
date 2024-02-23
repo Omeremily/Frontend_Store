@@ -3,8 +3,9 @@ import { StoreItemProps } from "../types/storeTypes";
 
 export const ItemContext = createContext({});
 
-export default function ItemContextProvider({ children}) {
+export default function ItemContextProvider({ children }: { children: React.ReactNode }) {
 
+    //רשימת המוצרים בחנות
     const [items, setItems] = useState<StoreItemProps[]>([
         {
             "id": 1,
@@ -77,7 +78,8 @@ export default function ItemContextProvider({ children}) {
     ]);
     
     const value ={
-        items
+        items,
+        setItems
     }
 
     return (
