@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { StoreItemProps } from "../types/storeTypes";
-import { Card } from "react-bootstrap";
+import { Button, Card, CardTitle } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
 import NavBar from "./NavBar";
 import '../css/SpecificItemPage.css'
@@ -15,6 +15,8 @@ export default function SpecificItem({
   shortDescription,
   onlyToSpecific,
 }: StoreItemProps) {
+
+  const quantity = 0;
 
 
   if(!id){
@@ -52,8 +54,23 @@ export default function SpecificItem({
                 </span>
             </div>
             {onlyToSpecific && (
-              <>
-                <button >Add to Cart</button>
+              <>    
+                <CardTitle className="mt-auto">
+                  {quantity===0 ? (
+                    <Button className="w-100">+ Add To Cart</Button>
+                  ): <div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
+                    <div className="d-flex align-items-center justify-content-center" style={{gap: ".5rem"}}>
+                      <Button>-</Button>
+                      <div>
+                        <span className="fs-3">{quantity}</span> in cart
+                      </div>
+                      <Button>+</Button>
+
+                    </div>
+                    <Button variant="danger">Remove</Button>
+                    </div>}
+
+                </CardTitle>
                 <span className="mb-2">{shortDescription}</span>
                 <span className="text-muted">{longDescription}</span>
               </>
