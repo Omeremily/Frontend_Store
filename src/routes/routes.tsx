@@ -21,8 +21,8 @@ export const routes= createBrowserRouter([
         element:<ItemContextProvider><Store/></ItemContextProvider>
     },
     {
-        path:'/item/:item', // הפניות דינאמיות למוצרים בתוך החנות
-        element:<ItemContextProvider><StoreItem id={0} name={" פה אמור להיות דף של מוצר ספציפי"} price={0} imgUrl={""} shortDescription={""} longDescription={""} minimum={0} maximum={0} salePrice={0}/></ItemContextProvider>
+        path:'/item/:id', // הפניות דינאמיות למוצרים בתוך החנות
+        element:<ItemContextProvider><StoreItem/></ItemContextProvider>
     },
     {
         path:'/register',

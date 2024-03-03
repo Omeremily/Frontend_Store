@@ -6,6 +6,7 @@ export const ItemContext = createContext({});
 export default function ItemContextProvider({ children }: { children: React.ReactNode }) {
 
     //רשימת המוצרים בחנות
+    
     const [items, setItems] = useState<StoreItemProps[]>([
         {
             "id": 1,
@@ -14,7 +15,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "Beef lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "minimum": 1,
             "maximum": 10,
-            "imgUrl": "./public/imgs/beef.jpg",
+            "imgUrl": "/public/imgs/beef.jpg",
             "price": 60,
             "salePrice": 50,
 
@@ -28,7 +29,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "salePrice": 50,
             "price": 60,
-            "imgUrl": "./public/imgs/chicken.jpg"
+            "imgUrl": "/public/imgs/chicken.jpg"
         },
         {
             "id": 3,
@@ -39,7 +40,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "salePrice": 50,
             "price": 70,
-            "imgUrl": "./public/imgs/pasta.jpg"
+            "imgUrl": "/public/imgs/pasta.jpg"
 
         },
         {   
@@ -51,7 +52,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "salePrice": 50,
             "price": 50,
-            "imgUrl": "./public/imgs/salad.jpg"
+            "imgUrl": "/public/imgs/salad.jpg"
         },
         {
             "id": 5,
@@ -62,7 +63,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "salePrice": 50,
             "price": 70,
-            "imgUrl": "./public/imgs/pasta.jpg"
+            "imgUrl": "/public/imgs/pasta.jpg"
         },
         {   
             "id": 6,
@@ -73,7 +74,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "salePrice": 50,
             "price": 50,
-            "imgUrl": "./public/imgs/salad.jpg"
+            "imgUrl": "/public/imgs/salad.jpg"
         }
     ]);
     

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import { Row, Col } from "react-bootstrap"
-import StoreItem from "./StoreItem"
 import {ItemContext } from "../context/ItemContext"
 import { useContext } from "react"
 import { StoreItemProps } from "../types/storeTypes"
+import SpecificItem from "../components/specificItem"
 
 export default function Store() {
 
@@ -18,7 +18,7 @@ export default function Store() {
           {items.map((item: StoreItemProps) => (
             <Col key={item.id}>
               <Link className="text-decoration-none" to={`/item/${item.id}`}>
-                <StoreItem {...item} />
+                <SpecificItem {...item} />
               </Link>
             </Col>
           ))}
