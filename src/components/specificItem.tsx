@@ -1,6 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-import {ItemContext} from "../context/ItemContext";
-import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { StoreItemProps } from "../types/storeTypes";
 import { Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
@@ -17,8 +15,6 @@ export default function SpecificItem({
   shortDescription,
   onlyToSpecific,
 }: StoreItemProps) {
-
-  const {items} = useContext<any>(ItemContext);
 
 
   if(!id){
