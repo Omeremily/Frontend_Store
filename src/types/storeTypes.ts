@@ -8,5 +8,6 @@ export type StoreItemProps = {
     maximum?: number;
     price?: number;
     salePrice?: number;
+    onlyToSpecific?: boolean;  
 }
 

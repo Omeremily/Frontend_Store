@@ -4,13 +4,22 @@ import { useContext, useEffect, useState } from "react";
 import { StoreItemProps } from "../types/storeTypes";
 import { Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
+import NavBar from "./NavBar";
+import '../css/SpecificItemPage.css'
 
-export default function SpecificItem({id, name, imgUrl, price, salePrice}:StoreItemProps)
-{
+export default function SpecificItem({
+  id,
+  name,
+  imgUrl,
+  price,
+  salePrice,
+  longDescription,
+  shortDescription,
+  onlyToSpecific,
+}: StoreItemProps) {
 
   const {items} = useContext<any>(ItemContext);
 
-  //const [product, setProduct] = useState<StoreItemProps|null>(null);
 
   if(!id){
     return(
@@ -23,8 +32,16 @@ export default function SpecificItem({id, name, imgUrl, price, salePrice}:StoreI
 
     return(
       <>
+        {onlyToSpecific && (
+              <>
+                <NavBar />
+              </>
+          )}
+      <div className={onlyToSpecific ? 'specific-containter' : ''}>
+
         <Card>
-            <Card.Img 
+            <Card.Img
+            className={onlyToSpecific ? 'specific-image' : ''}
             variant="top" 
             src={imgUrl} 
             height="200px" 
@@ -38,8 +55,17 @@ export default function SpecificItem({id, name, imgUrl, price, salePrice}:StoreI
                 <span className='ms-2 text-muted'>{formatCurrency(salePrice ?? 0)}</span>
                 </span>
             </div>
+            {onlyToSpecific && (
+              <>
+                <button >Add to Cart</button>
+                <span className="mb-2">{shortDescription}</span>
+                <span className="text-muted">{longDescription}</span>
+              </>
+          )}
       </Card.Body>
     </Card>
-      </>
+    </div>
+    </>
+
     )
   }

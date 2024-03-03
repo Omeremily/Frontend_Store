@@ -22,7 +22,7 @@ export default function StoreItem()
 
   return (
 <>
-    <SpecificItem {...product}/>
+    <SpecificItem {...product} onlyToSpecific={Boolean(product)}/>
 </>
 
   )

@@ -17,8 +17,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "maximum": 10,
             "imgUrl": "/public/imgs/beef.jpg",
             "price": 60,
-            "salePrice": 50,
-
+            "salePrice": 50,    
         },
         {
             "id": 2,
