@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { ShoppingCartContexts, CartItem } from "../types/storeTypes";
 
 
 const ShoppingCartContext = createContext({} as ShoppingCartContexts);
 
-export function useShoppingCart(){
-    return useState(ShoppingCartContext)
+export function useShoppingCart() {
+    return useContext(ShoppingCartContext);
 }
 
 type ShoppingCartContextProps = {
@@ -59,7 +59,12 @@ export function ShoppingCartProvider({ children}: ShoppingCartContextProps) {
 
 
     return (
-        <ShoppingCartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart }}>
+        <ShoppingCartContext.Provider value={{
+            getItemQuantity,
+            increaseCartQuantity,
+            decreaseCartQuantity,
+            removeFromCart
+            }}>
             {children}
         </ShoppingCartContext.Provider>
     )
