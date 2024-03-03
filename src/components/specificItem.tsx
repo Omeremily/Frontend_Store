@@ -16,6 +16,7 @@ export default function SpecificItem({
   onlyToSpecific,
 }: StoreItemProps) {
 
+  //const{}
   const quantity = 0;
 
 

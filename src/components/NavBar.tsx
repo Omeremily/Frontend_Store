@@ -5,6 +5,7 @@ export default function NavBar() {
   return (
 
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
+      <img src="/imgs/logo.png" style={{ width: "130px", padding: "0 20px" }}></img>
       <Container>
         <Nav className="me-auto">
             <Nav.Link to="/" as={NavLink}>Home</Nav.Link>
