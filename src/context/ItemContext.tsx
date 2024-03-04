@@ -5,6 +5,7 @@ export const ItemContext = createContext({});
 
 export default function ItemContextProvider({ children }: { children: React.ReactNode }) {
 
+
     //רשימת המוצרים בחנות
     
     const [items, setItems] = useState<StoreItemProps[]>([

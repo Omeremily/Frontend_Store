@@ -1,7 +1,11 @@
 import { Container,Nav,Navbar as NavbarBs, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export default function NavBar() {
+
+  const { cartQuantity, openCart } = useShoppingCart();
+
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <NavLink to="/" style={{ padding: "0 20px" }}>
@@ -14,7 +18,7 @@ export default function NavBar() {
           <Nav.Link to="/register" as={NavLink}>Register</Nav.Link>
           <Nav.Link to="/about" as={NavLink}>About</Nav.Link>
         </Nav>
-        <Button style={{ width: "3rem", height: "3rem", position: "relative", backgroundColor: "transparent", border: "none" }}>
+        <Button onClick={openCart} style={{ width: "3rem", height: "3rem", position: "relative", backgroundColor: "transparent", border: "none" }}>
           {/* SVG code for the shopping cart */}
           <svg enable-background="new 0 0 50 50" id="Layer_1" version="1.1" viewBox="0 0 50 50" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <path d="M8,14L4,49h42l-4-35H8z" fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
@@ -36,7 +40,7 @@ export default function NavBar() {
               right: 0,
               transform: "translate(-5%, -5%)"
             }}>
-            0
+            {cartQuantity}
           </div>
         </Button>
       </Container>

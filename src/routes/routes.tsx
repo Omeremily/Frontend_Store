@@ -5,7 +5,6 @@ import Store from "../pages/Store";
 //import Item from "../pages/StoreItem";
 import Register from "../pages/Register";
 import StoreItem from "../pages/StoreItem";
-import ItemContextProvider from "../context/ItemContext";
 
 export const routes= createBrowserRouter([
     {
@@ -18,11 +17,11 @@ export const routes= createBrowserRouter([
     },
     {
         path:'/store',
-        element:<ItemContextProvider><Store/></ItemContextProvider>
+        element:<Store/>
     },
     {
         path:'/item/:id', // הפניות דינאמיות למוצרים בתוך החנות
-        element:<ItemContextProvider><StoreItem/></ItemContextProvider>
+        element:<StoreItem/>
     },
     {
         path:'/register',

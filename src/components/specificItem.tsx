@@ -20,7 +20,7 @@ export default function SpecificItem({
 
   const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
 
-  const quantity = getItemQuantity(id!);
+  const quantity = id !== undefined ? getItemQuantity(id) : 0;
 
 
   if(!id){
