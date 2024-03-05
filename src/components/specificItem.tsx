@@ -46,7 +46,7 @@ export default function SpecificItem({
             className={onlyToSpecific ? 'specific-image' : ''}
             variant="top" 
             src={imgUrl} 
-            height="200px" 
+            height="250px"
             style={{objectFit:"cover"}} 
             />
         <Card.Body className="d-flex flex-column">

@@ -2,8 +2,11 @@ import { Container,Nav,Navbar as NavbarBs, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
+
+//קומפוננטה שמציגה את תפריט הניווט
 export default function NavBar() {
 
+  //
   const { cartQuantity, openCart } = useShoppingCart();
 
   return (
