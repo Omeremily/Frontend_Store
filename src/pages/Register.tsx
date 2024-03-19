@@ -8,39 +8,26 @@ export default function Register() {
     function validate(values: User){
         const errors: Partial<User> = {};
       
-        //fullname max length 50
-        if(!values.fullName){
-            errors.fullName = 'Required';
-        } else if (values.fullName.length > 50) {
-            errors.fullName = 'Must be 50 characters or less';
+        // Full name must be at least 2 characters long and less than 50 characters, containing only English letters
+        if (!/^[A-Za-z]{2,50}$/.test(values.fullName)) {
+            errors.fullName = 'Invalid full name';
         }
 
         // Phone number format 05x-xxxxxxx
-        if (!values.phoneNumber) {  
-            errors.phoneNumber = 'Required';
-        } else if (!/^(05\d)-\d{7}$/g.test(values.phoneNumber)) {
-            errors.phoneNumber = 'Invalid phone number format. Should be 05x-xxxxxxx';
+        if (!/^(05\d)-\d{7}$/g.test(values.phoneNumber)) {
+            errors.phoneNumber = 'Invalid phone number';
         }
 
         // Birth date should be at least 18 years old
-        if (!values.birthDate) {
-          errors.birthDateValidate = 'Required';
-      } else {
-          const today = new Date();
-          const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); 
-          if (values.birthDate > minDate) {
-              errors.birthDateValidate = '18 years old or older';
-
-          }
-      }
+        const today = new Date();
+        const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); 
+        if (values.birthDate > minDate) {
+            errors.birthDateValidate = 'Invalid birth date';
+        }
 
         return errors;
-
-
     }
 
-
-  
     const loginForm= useFormik<User>({
         initialValues:{
             email:'',
@@ -65,50 +52,50 @@ export default function Register() {
 
   return (
     <>
-      <NavBar />
-      <h1>Register</h1>
-      
-      <form onSubmit={loginForm.handleSubmit}>
+    <NavBar />
+    <h1>Register</h1>
+    
+    <form onSubmit={loginForm.handleSubmit}>
         <div>
-            <label htmlFor="email"> Email</label>
-            <input type="email" id="email" name="email" onChange={loginForm.handleChange} value={loginForm.values.email} required/>
-            {loginForm.errors.email && <p>{loginForm.errors.email}</p>}
+        <label htmlFor="email"> Email</label>
+        <input type="email" id="email" name="email" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.email} required/>
+        {loginForm.errors.email && loginForm.touched.email && <p>{loginForm.errors.email}</p>}
         </div>
         <div>
-            <label htmlFor="fullName"> Full Name</label>
-            <input type="text" id="fullName" name="fullName" onChange={loginForm.handleChange} value={loginForm.values.fullName} required/>
-            {loginForm.errors.fullName && <p>{loginForm.errors.fullName}</p>}
+        <label htmlFor="fullName"> Full Name</label>
+        <input type="text" id="fullName" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required/>
+        {loginForm.errors.fullName && loginForm.touched.fullName && <p>{loginForm.errors.fullName}</p>}
         </div>
         <div>
-            <label htmlFor="phoneNumber"> Phone Number</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" onChange={loginForm.handleChange} value={loginForm.values.phoneNumber} required/>
-            {loginForm.errors.phoneNumber && <p>{loginForm.errors.phoneNumber}</p>}
+        <label htmlFor="phoneNumber"> Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.phoneNumber} required/>
+        {loginForm.errors.phoneNumber && loginForm.touched.phoneNumber && <p>{loginForm.errors.phoneNumber}</p>}
         </div>
         <div>
-            <label htmlFor="img"> Img</label>
-            <input type="text" id="img" name="img" onChange={loginForm.handleChange} value={loginForm.values.img} required/>
-            {loginForm.errors.img && <p>{loginForm.errors.img}</p>}
+        <label htmlFor="img"> Img</label>
+        <input type="text" id="img" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required/>
+        {loginForm.errors.img && loginForm.touched.img && <p>{loginForm.errors.img}</p>}
         </div>
         <div>
-            <label htmlFor="birthDate"> Birth Date</label>
-            <input type="date" id="birthDate" name="birthDate" onChange={loginForm.handleChange} value={loginForm.values.birthDate}required/>
+        <label htmlFor="birthDate"> Birth Date</label>
+        <input type="date" id="birthDate" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate} required/>
         </div>
         <div>
-            <label htmlFor="password"> Password</label>
-            <input type="text" id="password" name="password" onChange ={loginForm.handleChange} value={loginForm.values.password} required/>
-            {loginForm.errors.password && <p>{loginForm.errors.password}</p>}
+        <label htmlFor="password"> Password</label>
+        <input type="text" id="password" name="password" onChange ={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required/>
+        {loginForm.errors.password && loginForm.touched.password && <p>{loginForm.errors.password}</p>}
         </div>
         <div>
-            <label htmlFor="city"> City</label>
-            {/* <input type="text" id="city" name="city" onChange={loginForm.handleChange} value={loginForm.values.address.city} required/> */}
+        <label htmlFor="city"> City</label>
+        {/* <input type="text" id="city" name="city" onChange={loginForm.handleChange} value={loginForm.values.address.city} required/> */}
         </div>
         <div>
-            <label htmlFor="street"> Street</label>
-            {/* <input type="text" id="street" name="street" onChange={loginForm.handleChange} value={loginForm.values.address.street} required/> */}
+        <label htmlFor="street"> Street</label>
+        {/* <input type="text" id="street" name="street" onChange={loginForm.handleChange} value={loginForm.values.address.street} required/> */}
         </div>
 
         <button type="submit">Submit</button>
-      </form>
+    </form>
     </>
   );
 }
