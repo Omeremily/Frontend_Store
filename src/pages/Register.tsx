@@ -1,7 +1,9 @@
 import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { User } from "../types/userTypes";
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/Register.css';
 
 
 export default function Register() {
@@ -49,88 +51,113 @@ export default function Register() {
         }
     })
 
-  return (
-    <>
-    <NavBar />
-    <section className="vh-100">
-      <div className="container h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-lg-12 col-xl-11">
-            <div className="card text-black" style={{ borderRadius: '25px' }}>
-              <div className="card-body p-md-5">
-                <div className="row justify-content-center">
-                  <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    return (
+        <>
+          <NavBar />
+          <section className="vh-100">
+            <div className="container h-100">
+            <div className="row justify-content-center">
+                <div className="col-lg-12 col-xl-11">
+                  <div className="card text-black" style={{ borderRadius: '25px', padding: '5px'  }}>
+                    <div className="card-body p-md-5">
+                      <div className="row justify-content-center">
+                        <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">     
+                          {/* טופס הרשמה */}
+                          <form onSubmit={loginForm.handleSubmit} className="mx-1 mx-md-4">
+      
+                            {/* שדה אימייל */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="email">Email</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-envelope"></i></span>
+                                    <input type="email" id="email" placeholder="example@gmail.com" className="form-control" name="email" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.email} required />
+                                </div>
+                                {loginForm.errors.email && loginForm.touched.email && <p className="error-message">{loginForm.errors.email}</p>}
+                            </div>
 
-                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+                            {/* שדה שם מלא */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="fullName">Full Name</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-user"></i></span>
+                                    <input type="text" id="fullName" placeholder="John Doe" className="form-control" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required />
+                                </div>
+                                {loginForm.errors.fullName && loginForm.touched.fullName && <p className="error-message">{loginForm.errors.fullName}</p>}
+                            </div>
 
-                    <form onSubmit={loginForm.handleSubmit} className="mx-1 mx-md-4">
+                            {/* שדה מספר טלפון */}
+                            <div className="mb-2">
+                                <label className="mb-7 form-label" htmlFor="phoneNumber">Phone Number</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-phone"></i></span>
+                                    <input type="tel" id="phoneNumber" placeholder="05x-xxxxxxx" className="form-control" name="phoneNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.phoneNumber} required />
+                                </div>
+                                {loginForm.errors.phoneNumber && loginForm.touched.phoneNumber && <p className="error-message">{loginForm.errors.phoneNumber}</p>}
+                            </div>
 
-                      <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
-                          <input type="email" id="email" className="form-control" name="email" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.email} required />
-                          {loginForm.errors.email && loginForm.touched.email && <p className="error-message">{loginForm.errors.email}</p>}
-                          <label className="form-label" htmlFor="email">Email</label>
+                            {/* שדה תמונה */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="img">Img</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-image"></i></span>
+                                    <input type="text" id="img" placeholder="img src" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
+                                </div>
+                                {loginForm.errors.img && loginForm.touched.img && <p className="error-message">{loginForm.errors.img}</p>}
+                            </div>
+
+                            {/* שדה תאריך לידה */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="birthDate">Birth Date</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-calendar-alt"></i></span>
+                                    <input type="date" id="birthDate" className="form-control" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate} required />
+                                </div>
+                                {loginForm.errors.birthDate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDate}</p>}
+                            </div>
+                                
+                            {/* שדה כתובת (עיר,רחוב,מספר בית) */}
+                            <label className="form-label">Address</label>
+                            <div className="mb-4 d-flex justify-content-between">
+                                <div className=" me-2">
+                                    <input type="text" id="city" className="form-control" name="address.city" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.city} required placeholder="City"/>
+                                    {loginForm.errors.address?.city && loginForm.touched.address?.city && <p className="error-message">{loginForm.errors.address.city}</p>}
+                                </div>
+                                <div className=" me-2">
+                                    <input type="text" id="street" className="form-control" name="address.street" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.street} required placeholder="Street" />
+                                    {loginForm.errors.address?.street && loginForm.touched.address?.street && <p className="error-message">{loginForm.errors.address.street}</p>}
+                                </div>
+                                <div className="">
+                                    <input type="text" id="houseNumber" className="form-control" name="address.houseNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.houseNumber} required placeholder="No."/>
+                                    {loginForm.errors.address?.houseNumber && loginForm.touched.address?.houseNumber && <p className="error-message">{loginForm.errors.address.houseNumber}</p>}
+                                </div>
+                            </div>
+      
+                            {/* כפתור הרשמה */}
+                            <div className="d-flex justify-content-center mx-4">
+                              <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px'  }}>Submit</button>
+                            </div> 
+                          </form>
+                        </div>
+                        
+                        {/* צד ימין של דף הרשמה (כותרת,תמונה ומעבר לדף התחברות) */}
+                        <div className="col-md-10 col-lg-6 col-xl-7 d-flex flex-column align-items-center order-1 order-lg-2">
+                            {/* כותרת דף הרשמה */}
+                            <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Registeration</p>
+                            {/* תמונה */}
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />
+                            {/* כותרת מעבר לדף התחברות במידה ורשומים */}
+                            <p className="text-center h6 mb-5 mx-1 mx-md-4 mt-4 ">Already have an account? <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></p>
                         </div>
                       </div>
-
-                      <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
-                          <input type="text" id="fullName" className="form-control" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required />
-                          {loginForm.errors.fullName && loginForm.touched.fullName && <p className="error-message">{loginForm.errors.fullName}</p>}
-                          <label className="form-label" htmlFor="fullName">Full Name</label>
-                        </div>
-                      </div>
-
-                      <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-phone fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
-                          <input type="tel" id="phoneNumber" className="form-control" name="phoneNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.phoneNumber} required />
-                          {loginForm.errors.phoneNumber && loginForm.touched.phoneNumber && <p className="error-message">{loginForm.errors.phoneNumber}</p>}
-                          <label className="form-label" htmlFor="phoneNumber">Phone Number</label>
-                        </div>
-                      </div>
-
-                      <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-image fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
-                          <input type="text" id="img" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
-                          {loginForm.errors.img && loginForm.touched.img && <p className="error-message">{loginForm.errors.img}</p>}
-                          <label className="form-label" htmlFor="img">Img</label>
-                        </div>
-                      </div>
-
-                      <div className="d-flex flex-row align-items-center mb-4">
-                        <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
-                          <input type="password" id="password" className="form-control" name="password" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required />
-                          {loginForm.errors.password && loginForm.touched.password && <p className="error-message">{loginForm.errors.password}</p>}
-                          <label className="form-label" htmlFor="password">Password</label>
-                        </div>
-                      </div>
-
-                      <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" className="btn btn-primary btn-lg">Submit</button>
-                      </div>
-
-                    </form>
-
-                  </div>
-                  <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                      className="img-fluid" alt="Sample image" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    </>
-  );
-}
+          </section>
+        </>
+      );
+    }   
 
 
 
