@@ -1,7 +1,8 @@
-
 import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { User } from "../types/userTypes";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function Register() {
 
@@ -48,54 +49,85 @@ export default function Register() {
         }
     })
 
- 
-
   return (
     <>
     <NavBar />
-    <h1>Register</h1>
-    
-    <form onSubmit={loginForm.handleSubmit}>
-        <div>
-        <label htmlFor="email"> Email</label>
-        <input type="email" id="email" name="email" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.email} required/>
-        {loginForm.errors.email && loginForm.touched.email && <p>{loginForm.errors.email}</p>}
-        </div>
-        <div>
-        <label htmlFor="fullName"> Full Name</label>
-        <input type="text" id="fullName" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required/>
-        {loginForm.errors.fullName && loginForm.touched.fullName && <p>{loginForm.errors.fullName}</p>}
-        </div>
-        <div>
-        <label htmlFor="phoneNumber"> Phone Number</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.phoneNumber} required/>
-        {loginForm.errors.phoneNumber && loginForm.touched.phoneNumber && <p>{loginForm.errors.phoneNumber}</p>}
-        </div>
-        <div>
-        <label htmlFor="img"> Img</label>
-        <input type="text" id="img" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required/>
-        {loginForm.errors.img && loginForm.touched.img && <p>{loginForm.errors.img}</p>}
-        </div>
-        <div>
-        <label htmlFor="birthDate"> Birth Date</label>
-        <input type="date" id="birthDate" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate} required/>
-        </div>
-        <div>
-        <label htmlFor="password"> Password</label>
-        <input type="text" id="password" name="password" onChange ={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required/>
-        {loginForm.errors.password && loginForm.touched.password && <p>{loginForm.errors.password}</p>}
-        </div>
-        <div>
-        <label htmlFor="city"> City</label>
-        {/* <input type="text" id="city" name="city" onChange={loginForm.handleChange} value={loginForm.values.address.city} required/> */}
-        </div>
-        <div>
-        <label htmlFor="street"> Street</label>
-        {/* <input type="text" id="street" name="street" onChange={loginForm.handleChange} value={loginForm.values.address.street} required/> */}
-        </div>
+    <section className="vh-100">
+      <div className="container h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-lg-12 col-xl-11">
+            <div className="card text-black" style={{ borderRadius: '25px' }}>
+              <div className="card-body p-md-5">
+                <div className="row justify-content-center">
+                  <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-        <button type="submit">Submit</button>
-    </form>
+                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+
+                    <form onSubmit={loginForm.handleSubmit} className="mx-1 mx-md-4">
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input type="email" id="email" className="form-control" name="email" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.email} required />
+                          {loginForm.errors.email && loginForm.touched.email && <p className="error-message">{loginForm.errors.email}</p>}
+                          <label className="form-label" htmlFor="email">Email</label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input type="text" id="fullName" className="form-control" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required />
+                          {loginForm.errors.fullName && loginForm.touched.fullName && <p className="error-message">{loginForm.errors.fullName}</p>}
+                          <label className="form-label" htmlFor="fullName">Full Name</label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-phone fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input type="tel" id="phoneNumber" className="form-control" name="phoneNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.phoneNumber} required />
+                          {loginForm.errors.phoneNumber && loginForm.touched.phoneNumber && <p className="error-message">{loginForm.errors.phoneNumber}</p>}
+                          <label className="form-label" htmlFor="phoneNumber">Phone Number</label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-image fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input type="text" id="img" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
+                          {loginForm.errors.img && loginForm.touched.img && <p className="error-message">{loginForm.errors.img}</p>}
+                          <label className="form-label" htmlFor="img">Img</label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input type="password" id="password" className="form-control" name="password" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required />
+                          {loginForm.errors.password && loginForm.touched.password && <p className="error-message">{loginForm.errors.password}</p>}
+                          <label className="form-label" htmlFor="password">Password</label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+                      </div>
+
+                    </form>
+
+                  </div>
+                  <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                      className="img-fluid" alt="Sample image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </>
   );
 }

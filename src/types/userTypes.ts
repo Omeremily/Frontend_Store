@@ -1,13 +1,13 @@
 export type User= {
     email: string,
-    fullName:string,
-    phoneNumber:string,
-    img:string,
-    birthDate:Date,
-    password:string,
+    fullName: string,
+    phoneNumber: string,
+    img: string,
+    birthDate: Date,
+    password: string,
     birthDateValidate?: string,
     isActive?: boolean
-    address? :{
+    address?: {
         city:string,
         street:string,
     },
