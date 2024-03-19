@@ -3,7 +3,7 @@ export type User= {
     fullName:string,
     phoneNumber:string,
     img:string,
-    birthDate:Date | undefined,
+    birthDate:Date,
     password:string,
     birthDateValidate?: string,
     isActive?: boolean
