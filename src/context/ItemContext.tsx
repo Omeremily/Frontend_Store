@@ -78,6 +78,8 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         }
     ]);
     
+
+    //רשימת מוצרים במבצע בדף הראשי
     const [saleItems, setSaleItems] = useState<StoreItemProps[]>([
         {
             "id": 1,

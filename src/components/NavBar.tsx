@@ -6,7 +6,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 //קומפוננטה שמציגה את תפריט הניווט
 export default function NavBar() {
 
-  //
+//
   const { cartQuantity, openCart } = useShoppingCart();
 
   return (
