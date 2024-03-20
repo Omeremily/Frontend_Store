@@ -11,18 +11,16 @@ export default function Store() {
     const { items } = useContext<any>(ItemContext);
     const [itemsToShow, setItemsToShow] = useState<StoreItemProps[]>([]);
     const [search, setSearch] = useState('');
-    const [sortOrder, setSortOrder] = useState('');
-
-    useEffect(() => {
-      let sortedItems = [...items];
-      if (sortOrder === 'asc') {
-          sortedItems.sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
-      } else if (sortOrder === 'desc') {
-          sortedItems.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
-      }
-      setItemsToShow(sortedItems);
-  }, [sortOrder]);
+    const [sortOrder, setSortOrder] = useState('asc');
   
+    function sortByPrice() {
+        if (sortOrder === 'asc') {
+            setItemsToShow([...itemsToShow.sort((a, b) => (a.price ?? 0) - (b.price ?? 0))]);
+        } else {
+            setItemsToShow([...itemsToShow.sort((a, b) => (b.price ?? 0) - (a.price ?? 0))]);
+        }
+    }
+    
     useEffect(() => {
         if (search === '') {
             setItemsToShow(items);
@@ -46,7 +44,7 @@ export default function Store() {
                     />
                     <select 
                         value={sortOrder} 
-                        onChange={(e) => { setSortOrder(e.target.value); }}
+                        onChange={(e) => { setSortOrder(e.target.value); sortByPrice(); }}
                         style={{ 
                             marginLeft: '0.5rem',
                             padding: '0.5rem',
@@ -54,13 +52,13 @@ export default function Store() {
                             border: '1px solid #ced4da'
                         }}
                     >
-                        <option value="">Sort By: (unsorted)</option>
-                        <option value="asc">Sort By: Low to High</option>
-                        <option value="desc">Sort By: High to Low</option>
+                        <option value="">Sort By:</option>
+                        <option value="asc">Sort By: High to Low</option>
+                        <option value="desc">Sort By: Low to High</option>
                     </select>
                 </div>
             </div>
-            <Row md={2} xs={1} lg={3} className="g-3">
+            <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 mx-auto">
                 {itemsToShow.map((item: StoreItemProps) => (
                     <Col key={item.id}>
                         <Link className="text-decoration-none" to={`/item/${item.id}`}>

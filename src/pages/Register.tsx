@@ -5,6 +5,17 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Register.css';
 
+// רשימות קבועות של ערים ורחובות
+const cities = [
+    "Tel Aviv", "Jerusalem", "Haifa", "Rishon LeZion", "Petah Tikva",
+    "Ashdod", "Netanya", "Beer Sheva", "Bnei Brak", "Holon"
+];
+
+const streets = [
+    "Rothschild", "Ben Yehuda", "Allenby", "Dizengoff", "Herzl",
+    "King George", "Beit Habad", "Yaffo", "Bialik", "Haim Ozer"
+];
+
 
 export default function Register() {
 
@@ -24,34 +35,56 @@ export default function Register() {
         // Birth date should be at least 18 years old
         const today = new Date();
         const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); 
-        if (values.birthDate > minDate) {
+        const selectedDate = new Date(values.birthDate);
+        if (selectedDate > minDate) {
             errors.birthDateValidate = 'Invalid birth date';
         }
 
+        // Password must contain only English letters, numbers, and the following special characters: !@#$%^&*
+        if (!/^[a-zA-Z0-9!@#$%^&*]+$/.test(values.password)) {
+            errors.password = 'Invalid password';
+        }
+        
+        // Address validation
+        if (errors.address) {
+            // City must be contained in the cities list + only text
+            if (!cities.includes(values.address.city)) {
+                errors.address.city = 'Invalid city';
+            }
+            // Street must be contained in the streets list + only text
+            if (!streets.includes(values.address.street)) {
+                errors.address.street = 'Invalid street';
+            }
+            // Only a number
+            if (isNaN(Number(values.address.houseNum))) {
+                errors.address.houseNum = 'Invalid House Number';
+            }
+        }
+                
         return errors;
     }
 
-    const loginForm= useFormik<User>({
-        initialValues:{
-            email:'',
-            fullName:'',
-            phoneNumber:'',
-            img:'',
-            birthDate:new Date(),
+    const loginForm = useFormik<User>({
+        initialValues: {
+            email: '',
+            fullName: '',
+            phoneNumber: '',
+            img: '',
+            birthDate: new Date(),
             birthDateValidate: '',
-            password:'',
+            password: '',
             address: {
-                city:'',
-                street:'',
-                houseNum: 0
+                city: '', 
+                street: '',
+                houseNum: ''
             },
         },
         validate,
-        onSubmit:(values)=>{
+        onSubmit: (values) => {
             alert(JSON.stringify(values));
         }
     })
-
+    
     return (
         <>
           <NavBar />
@@ -111,32 +144,83 @@ export default function Register() {
                                 <label className="form-label" htmlFor="birthDate">Birth Date</label>
                                 <div className="input-group">
                                     <span className="input-group-text"><i className="fas fa-calendar-alt"></i></span>
-                                    <input type="date" id="birthDate" className="form-control" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate} required />
+                                    <input type="date" id="birthDate" className="form-control" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate.toString()} required />
                                 </div>
-                                {loginForm.errors.birthDate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDate}</p>}
+                                {loginForm.errors.birthDateValidate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDateValidate}</p>}
                             </div>
                                 
                             {/* שדה כתובת (עיר,רחוב,מספר בית) */}
                             <label className="form-label">Address</label>
-                            <div className="mb-4 d-flex justify-content-between">
-                                <div className=" me-2">
-                                    <input type="text" id="city" className="form-control" name="address.city" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.city} required placeholder="City"/>
+                            <div className="mb-5 d-flex justify-content-between">
+                                <div className="me-2">
+                                    <input
+                                        type="text"
+                                        id="city"
+                                        className="form-control"
+                                        name="address.city"
+                                        onChange={(event) => {
+                                            const selectedCity = event.target.value;
+                                            if (selectedCity || event.target.value.length === 0) {
+                                                loginForm.setFieldValue("address.city", selectedCity);
+                                            }
+                                        }}
+                                        value={loginForm.values.address.city}
+                                        list="citiesList"
+                                        placeholder="Enter City"
+                                        required
+                                    />
+                                    <datalist id="citiesList">
+                                        {cities.map((city, index) => (
+                                            <option key={index} value={city} />
+                                        ))}
+                                    </datalist>
                                     {loginForm.errors.address?.city && loginForm.touched.address?.city && <p className="error-message">{loginForm.errors.address.city}</p>}
                                 </div>
-                                <div className=" me-2">
-                                    <input type="text" id="street" className="form-control" name="address.street" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.street} required placeholder="Street" />
+                                <div className="me-2">
+                                    <input
+                                        type="text"
+                                        id="street"
+                                        className="form-control"
+                                        name="address.street"
+                                        onChange={(event) => {
+                                            const selectedStreet = event.target.value;
+                                            if (selectedStreet || event.target.value.length === 0) {
+                                                loginForm.setFieldValue("address.street", selectedStreet);
+                                            }
+                                        }}
+                                        value={loginForm.values.address.street}
+                                        list="streetsList"
+                                        placeholder="Enter Street"
+                                        required
+                                    />
+                                    <datalist id="streetsList">
+                                        {streets.map((street, index) => (
+                                            <option key={index} value={street} />
+                                        ))}
+                                    </datalist>
                                     {loginForm.errors.address?.street && loginForm.touched.address?.street && <p className="error-message">{loginForm.errors.address.street}</p>}
                                 </div>
-                                <div className="">
-                                    <input type="text" id="houseNumber" className="form-control" name="address.houseNumber" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.address.houseNumber} required placeholder="No."/>
-                                    {loginForm.errors.address?.houseNumber && loginForm.touched.address?.houseNumber && <p className="error-message">{loginForm.errors.address.houseNumber}</p>}
+                                <div className="me-2">
+                                    <input
+                                        type="number"
+                                        id="houseNumber"
+                                        className="form-control"
+                                        name="address.houseNum"
+                                        onChange={loginForm.handleChange}
+                                        onBlur={loginForm.handleBlur}
+                                        value={loginForm.values.address.houseNum}
+                                        required
+                                        placeholder="No."
+                                    />
+                                    {loginForm.errors.address?.houseNum && loginForm.touched.address?.houseNum && <p className="error-message">{loginForm.errors.address.houseNum}</p>}
                                 </div>
                             </div>
-      
+
                             {/* כפתור הרשמה */}
                             <div className="d-flex justify-content-center mx-4">
-                              <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px'  }}>Submit</button>
+                                <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px' }}>Submit</button>
                             </div> 
+
                           </form>
                         </div>
                         

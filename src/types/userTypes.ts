@@ -7,15 +7,15 @@ export type User= {
     password: string,
     birthDateValidate?: string,
     isActive?: boolean
-    address?: {
+    address: {
         city:string,
         street:string,
-        houseNum: number
+        houseNum: string
     },
     shippmentAddress?: {
         city:string,
         street:string,
-        houseNum: number
+        houseNum: string
     },
     PurchaseHistory?: PurchaseHistoryType
 

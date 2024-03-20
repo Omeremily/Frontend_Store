@@ -1,3 +1,21 @@
+.product-card {
+    height: 100px; /* גובה קבוע לכרטיס מוצר */
+}
+
+.cards-container{
+    max-width: 100%;
+}
+
+.specific-containter{
+    margin-top: 3%;
+}
+
+.specific-body {
+    padding-top: 100px;
+    height: fit-content; /* גובה קבוע לכרטיס מוצר */
+
+}
+
 .specific-image {
     border-radius: 8px;
     padding: 50px;
@@ -9,7 +27,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 300px;
     width: 100%;
     text-align: center;
     padding: 300px;

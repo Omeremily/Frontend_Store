@@ -39,19 +39,19 @@ export default function SpecificItem({
                 <NavBar />
               </>
           )}
-      <div className={onlyToSpecific ? 'specific-containter' : ''}>
-
-        <Card>
+      <div className={onlyToSpecific ? 'specific-containter' : 'cards-container'}>
+         
+        <Card className={onlyToSpecific ? 'specific-card' : ''}>
             <Card.Img
             className={onlyToSpecific ? 'specific-image' : ''}
             variant="top" 
             src={imgUrl} 
-            height="250px"
-            style={{objectFit:"cover"}} 
+            height="230px"
+            style={{objectFit:"contain", padding: "30px"}} 
             />
-        <Card.Body className="d-flex flex-column">
+        <Card.Body className={onlyToSpecific ? 'specific-body' : 'd-flex flex-column product-card'}>
             <div className='d-flex justify-content-between w-100 align-items-baseline mb-4'>
-                <span className='fs-2'>{name}</span>
+                <span style={{fontSize: '1.1em'}}>{name}</span>
                 <span className='d-flex align-items-center'>
                 <span className='ms-2 text-muted text-decoration-line-through' style={{fontSize: '0.8em'}}>{formatCurrency(price ?? 0)}</span>
                 <span className='ms-2 text-muted'>{formatCurrency(salePrice ?? 0)}</span>
