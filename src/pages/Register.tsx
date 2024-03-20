@@ -100,7 +100,7 @@ export default function Register() {
                                 <label className="form-label" htmlFor="img">Img</label>
                                 <div className="input-group">
                                     <span className="input-group-text"><i className="fas fa-image"></i></span>
-                                    <input type="text" id="img" placeholder="img src" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
+                                    <input type="file" id="img" placeholder="img src" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
                                 </div>
                                 {loginForm.errors.img && loginForm.touched.img && <p className="error-message">{loginForm.errors.img}</p>}
                             </div>
