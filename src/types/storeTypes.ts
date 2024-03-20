@@ -11,6 +11,9 @@ export type StoreItemProps = {
     onlyToSpecific?: boolean;  
 }
 
+export type StoreProps = {
+    items: StoreItemProps[]
+}
 
 export type ShoppingCartContexts = {
     openCart: () => void;
