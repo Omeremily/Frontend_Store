@@ -1,68 +1,74 @@
-import { Link } from "react-router-dom"
-import NavBar from "../components/NavBar"
-import { Row, Col } from "react-bootstrap"
-import { ItemContext } from "../context/ItemContext"
-import { useContext, useEffect, useState } from "react"
-import { StoreItemProps } from "../types/storeTypes"
-import SpecificItem from "../components/specificItem"
-import '../css/Store.css'
+import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import { Row, Col } from "react-bootstrap";
+import { ItemContext } from "../context/ItemContext";
+import { useContext, useEffect, useState } from "react";
+import { StoreItemProps } from "../types/storeTypes";
+import SpecificItem from "../components/specificItem";
+import '../css/Store.css';
 
 export default function Store() {
-
     const { items } = useContext<any>(ItemContext);
     const [itemsToShow, setItemsToShow] = useState<StoreItemProps[]>([]);
-    const [search, setSearch] = useState<string>("");
-
-    function sortByPrice(lowToHigh: boolean) {
-      if (lowToHigh) {
-        setItemsToShow([...itemsToShow.sort((a, b) => (a.price ?? 0) - (b.price ?? 0))]);
-      } else {
-        setItemsToShow([...itemsToShow.sort((a, b) => (b.price ?? 0) - (a.price ?? 0))]);
-      }
-    }
+    const [search, setSearch] = useState('');
+    const [sortOrder, setSortOrder] = useState('');
 
     useEffect(() => {
-      if (search === '') {
-        setItemsToShow(items);
-      } else {
-        setItemsToShow(items.filter((item: StoreItemProps) => item.name?.toLowerCase().includes(search)))
+      let sortedItems = [...items];
+      if (sortOrder === 'asc') {
+          sortedItems.sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
+      } else if (sortOrder === 'desc') {
+          sortedItems.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
       }
+      setItemsToShow(sortedItems);
+  }, [sortOrder]);
+  
+    useEffect(() => {
+        if (search === '') {
+            setItemsToShow(items);
+        } else {
+            setItemsToShow(items.filter((item: StoreItemProps) => item.name?.toLowerCase().includes(search)))
+        }
     }, [search, items])
 
     return (
-      <>
-        <NavBar />
-        <h1>Store</h1>
-        <div style={{ display: "flex", justifyContent: "left" }}>
-          <input className="searchBar" 
-            placeholder="Search..."
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            />
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <p style={{ margin: '0', marginRight: '0.5rem' }}>sort: </p>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <button onClick={() => sortByPrice(true)} style={{ marginRight: '0.5rem', padding: '0.5rem' }}>
-                <i className="fas fa-arrow-down"></i>
-              </button>
-              <button onClick={() => sortByPrice(false)} style={{ padding: '0.5rem' }}>
-                <i className="fas fa-arrow-up"></i>
-              </button>
+        <>
+            <NavBar />
+            <h1>Store</h1>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <input
+                        className="searchBar"
+                        placeholder="Search..."
+                        type="search"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <select 
+                        value={sortOrder} 
+                        onChange={(e) => { setSortOrder(e.target.value); }}
+                        style={{ 
+                            marginLeft: '0.5rem',
+                            padding: '0.5rem',
+                            borderRadius: '4px',
+                            border: '1px solid #ced4da'
+                        }}
+                    >
+                        <option value="">Sort By: (unsorted)</option>
+                        <option value="asc">Sort By: Low to High</option>
+                        <option value="desc">Sort By: High to Low</option>
+                    </select>
+                </div>
             </div>
-          </div>
-        </div>
-        <Row md={2} xs={1} lg={3} className="g-3">
-          {itemsToShow.map((item: StoreItemProps) => (
-            <Col key={item.id}>
-              <Link className="text-decoration-none" to={`/item/${item.id}`}>
-                <SpecificItem {...item} />
-              </Link>
-            </Col>
-          ))}
-        </Row>
-      </>
+            <Row md={2} xs={1} lg={3} className="g-3">
+                {itemsToShow.map((item: StoreItemProps) => (
+                    <Col key={item.id}>
+                        <Link className="text-decoration-none" to={`/item/${item.id}`}>
+                            <SpecificItem {...item} />
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
+        </>
     );
-  }
-
-
+}
