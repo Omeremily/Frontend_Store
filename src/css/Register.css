@@ -1,23 +1,6 @@
-.registerForm {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  .registerForm label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .registerForm input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .registerForm button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+.error-message {
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem; 
+  color: red;
+}

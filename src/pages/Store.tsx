@@ -40,8 +40,17 @@ export default function Store() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             />
-          <button onClick={() => sortByPrice(true)}>low to high</button>
-          <button onClick={() => sortByPrice(false)}>high to low</button>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <p style={{ margin: '0', marginRight: '0.5rem' }}>sort: </p>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <button onClick={() => sortByPrice(true)} style={{ marginRight: '0.5rem', padding: '0.5rem' }}>
+                <i className="fas fa-arrow-down"></i>
+              </button>
+              <button onClick={() => sortByPrice(false)} style={{ padding: '0.5rem' }}>
+                <i className="fas fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <Row md={2} xs={1} lg={3} className="g-3">
           {itemsToShow.map((item: StoreItemProps) => (
