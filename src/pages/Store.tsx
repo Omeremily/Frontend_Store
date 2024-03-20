@@ -11,16 +11,18 @@ export default function Store() {
     const { items } = useContext<any>(ItemContext);
     const [itemsToShow, setItemsToShow] = useState<StoreItemProps[]>([]);
     const [search, setSearch] = useState('');
-    const [sortOrder, setSortOrder] = useState('asc');
+    const [sortOrder, setSortOrder] = useState('');
+
+    useEffect(() => {
+      let sortedItems = [...items];
+      if (sortOrder === 'asc') {
+          sortedItems.sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
+      } else if (sortOrder === 'desc') {
+          sortedItems.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
+      }
+      setItemsToShow(sortedItems);
+  }, [sortOrder]);
   
-    function sortByPrice() {
-        if (sortOrder === 'asc') {
-            setItemsToShow([...itemsToShow.sort((a, b) => (a.price ?? 0) - (b.price ?? 0))]);
-        } else {
-            setItemsToShow([...itemsToShow.sort((a, b) => (b.price ?? 0) - (a.price ?? 0))]);
-        }
-    }
-    
     useEffect(() => {
         if (search === '') {
             setItemsToShow(items);
@@ -41,10 +43,17 @@ export default function Store() {
                         type="search"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
+                        style={{ 
+                            marginLeft: '0.5rem',
+                            padding: '0.5rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'white',
+                            border: '1px solid #ced4da'
+                        }}
                     />
                     <select 
                         value={sortOrder} 
-                        onChange={(e) => { setSortOrder(e.target.value); sortByPrice(); }}
+                        onChange={(e) => { setSortOrder(e.target.value); }}
                         style={{ 
                             marginLeft: '0.5rem',
                             padding: '0.5rem',
@@ -52,9 +61,9 @@ export default function Store() {
                             border: '1px solid #ced4da'
                         }}
                     >
-                        <option value="">Sort By:</option>
-                        <option value="asc">Sort By: High to Low</option>
-                        <option value="desc">Sort By: Low to High</option>
+                        <option value="">Sort By: (unsorted)</option>
+                        <option value="asc">Sort By: Low to High</option>
+                        <option value="desc">Sort By: High to Low</option>
                     </select>
                 </div>
             </div>
