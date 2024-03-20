@@ -149,11 +149,28 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "imgUrl": "/public/imgs/salad.jpg"
         }
     ]);
+
+    function AddItemToStore(item:StoreItemProps) {
+        setItems([...items, item]);
+        localStorage.setItem("items", JSON.stringify([...items, item]));
+    }
+
+    // function DeleteProduct(id:number) {
+    //     setItems(items.filter((item) => item.id !== id));
+    //     localStorage.setItem("items", JSON.stringify(items.filter((item) => item.id !== id)));
+    // }
+
+    //  function UpdateProduct(id:number, item:StoreItemProps) {
+    //     setItems(items.map((i) => i.id === id ? item : i));
+    //     localStorage.setItem("items", JSON.stringify(items.map((i) => i.id === id ? item : i)));
+    // }
+
     const value ={
         items,
         setItems,
         saleItems,
-        setSaleItems
+        setSaleItems,
+        AddItemToStore
     }
 
     return (

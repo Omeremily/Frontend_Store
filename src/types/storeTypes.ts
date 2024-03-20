@@ -11,6 +11,9 @@ export type StoreItemProps = {
     onlyToSpecific?: boolean;  
 }
 
+export type StoreProps = {
+    items: StoreItemProps[]
+}
 
 export type ShoppingCartContexts = {
     openCart: () => void;
@@ -36,4 +39,9 @@ export type ShoppingCartProps = {
 export type CartItemProps = {
     id: number;
     quantity: number;
+}
+
+export type AddItemForm = {
+    addProductToStore: Function;
+        
 }
