@@ -160,6 +160,10 @@ export default function ItemContextProvider({ children }: { children: React.Reac
     //     localStorage.setItem("items", JSON.stringify(items.filter((item) => item.id !== id)));
     // }
 
+    //  function UpdateProduct(id:number, item:StoreItemProps) {
+    //     setItems(items.map((i) => i.id === id ? item : i));
+    //     localStorage.setItem("items", JSON.stringify(items.map((i) => i.id === id ? item : i)));
+    // }
 
     const value ={
         items,
