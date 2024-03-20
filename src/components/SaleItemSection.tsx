@@ -11,8 +11,8 @@ export default function SaleItemSection() {
 
     return (
       <>
-        <h1>Items on sale</h1>
-        <Row md={2} xs={1} lg={3} className="g-3">
+<h1 style={{ margin: '20px auto', textAlign: 'center', fontFamily: 'Open Sans, sans-serif', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Items on sale</h1>
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 mx-auto">
           {saleItems.map((item: StoreItemProps) => (
             <Col key={item.id}>
               <Link className="text-decoration-none" to={`/item/${item.id}`}>

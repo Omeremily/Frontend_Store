@@ -45,3 +45,12 @@ export type AddItemForm = {
     addProductToStore: Function;
         
 }
+
+export type BannerProps = {
+    image: string;
+    header: string;
+    description: string;
+    textAlign?: 'left' | 'center' | 'right';
+    textColor: string;
+    fontSize: string;
+  };

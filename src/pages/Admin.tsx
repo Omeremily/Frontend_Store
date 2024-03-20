@@ -25,7 +25,7 @@ export default function Admin() {
                 <h1>please log in</h1>
                 <Link to="/login"></Link>
             </div>
-        )
+        ) 
     }
 
     return (
