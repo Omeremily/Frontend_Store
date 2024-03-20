@@ -40,3 +40,8 @@ export type CartItemProps = {
     id: number;
     quantity: number;
 }
+
+export type AddItemForm = {
+    addProductToStore: Function;
+        
+}

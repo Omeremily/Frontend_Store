@@ -9,7 +9,7 @@ import NavBar from "../components/NavBar";
 
 export default function Admin() {
 
-    const { items } = useContext<any>(ItemContext);
+    const { items , AddItemToStore } = useContext<any>(ItemContext);
 
     const [isAdminLogin, setIsAdminLogin] = useState<boolean>(false);
 
@@ -32,7 +32,7 @@ export default function Admin() {
         <div>
             <NavBar />
             <h1>Admin</h1>
-            <AddProductForm />
+            <AddProductForm AddItemToStore={AddItemToStore} />
 
             <h1>רשימת מוצרים</h1>
             <div>
