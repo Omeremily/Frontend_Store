@@ -10,10 +10,12 @@ export type User= {
     address?: {
         city:string,
         street:string,
+        houseNum: number
     },
     shippmentAddress?: {
         city:string,
         street:string,
+        houseNum: number
     },
     PurchaseHistory?: PurchaseHistoryType
 

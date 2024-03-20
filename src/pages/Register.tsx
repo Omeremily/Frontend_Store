@@ -43,6 +43,7 @@ export default function Register() {
             address: {
                 city:'',
                 street:'',
+                houseNum: 0
             },
         },
         validate,
