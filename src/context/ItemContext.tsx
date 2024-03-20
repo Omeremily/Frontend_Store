@@ -23,7 +23,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 2,
             "name": "3 Color Bottles Pack",
-            "shortDescription": "Bottles",
+            "shortDescription": "Fitness accessories",
             "longDescription": "3 Color Pack(Black,White,Pink)w.Scale 12oz & 400ml for Protein Shake Drink Mix,BPA Free,Classic Loop,Dishwasher Safe,Easy to Clean,Leak Resistance,Whisk...",
             "minimum": 1,
             "maximum": 10,
@@ -33,48 +33,48 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         },
         {
             "id": 3,
-            "name": "Pasta",
-            "shortDescription": "Pasta",
-            "longDescription": "Pasta lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "name": "Sparkling Energy Hydration Drink",
+            "shortDescription": "Drinks",
+            "longDescription": "Optimum Nutrition Amino Energy Sparkling Hydration Drink, Electrolytes, Caffeine, Amino Acids, BCAAs, Sugar Free, Juicy Strawberry, 12 Fl Oz, 12 Pack (Packaging May Vary)",
             "minimum": 1,
             "maximum": 10,
             "salePrice": 50,
             "price": 70,
-            "imgUrl": "/public/imgs/pasta.jpg"
+            "imgUrl": "/public/imgs/cart-items/item3.jpg"
 
         },
         {   
             "id": 4,
-            "name": "Salad",
-            "shortDescription": "Salad",
-            "longDescription": "Salad lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "name": "Whey Protein Powder",
+            "shortDescription": "Protein Powders",
+            "longDescription": "Optimum Nutrition Gold Standard 100% Whey Protein Powder, Double Rich Chocolate, 5 Pound (Packaging May Vary)",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 50,
-            "price": 50,
-            "imgUrl": "/public/imgs/salad.jpg"
+            "salePrice": 199.99,
+            "price": 220,
+            "imgUrl": "/public/imgs/cart-items/item4.jpg"
         },
         {
             "id": 5,
-            "name": "Pasta",
-            "shortDescription": "Pasta",
-            "longDescription": "Pasta lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "name": "BLESSED Vegan Protein Powder",
+            "shortDescription": "Protein Powder",
+            "longDescription": "Plant Based Protein Shake Meal Replacement Powder - 23g of Pea Protein Powder for Women & Men, Dairy Free, Gluten Free, No Sugar Added, 30 Servings (Pumpkin Spice)",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 50,
-            "price": 70,
-            "imgUrl": "/public/imgs/pasta.jpg"
+            "salePrice": 220,
+            "price": 220,
+            "imgUrl": "/public/imgs/cart-items/item5.jpg"
         },
         {   
             "id": 6,
-            "name": "Salad",
-            "shortDescription": "Salad",
-            "longDescription": "Salad lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "name": "FIORETTO Gym Tote Bag",
+            "shortDescription": "Bags",
+            "longDescription": "FIORETTO Gym Tote Bag Duffle Bag with Separated Shoes Compartment & Wet Pocket, Gray color, Travel Bag Weekend Overnight Bags, Water-Resistant Carry On Bag",
             "minimum": 1,
             "maximum": 10,
             "salePrice": 50,
             "price": 50,
-            "imgUrl": "/public/imgs/salad.jpg"
+            "imgUrl": "/public/imgs/cart-items/item6.jpg"
         }
     ]);
     

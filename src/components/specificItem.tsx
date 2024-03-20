@@ -47,14 +47,16 @@ export default function SpecificItem({
             variant="top" 
             src={imgUrl} 
             height="230px"
-            style={{objectFit:"contain", padding: "30px"}} 
+            style={{objectFit:"contain", padding: "15px"}} 
             />
         <Card.Body className={onlyToSpecific ? 'specific-body' : 'd-flex flex-column product-card'}>
             <div className='d-flex justify-content-between w-100 align-items-baseline mb-4'>
                 <span style={{fontSize: '1.1em'}}>{name}</span>
                 <span className='d-flex align-items-center'>
-                <span className='ms-2 text-muted text-decoration-line-through' style={{fontSize: '0.8em'}}>{formatCurrency(price ?? 0)}</span>
-                <span className='ms-2 text-muted'>{formatCurrency(salePrice ?? 0)}</span>
+                  {/* מחיר מוצר רגיל  */}
+                  <span className='ms-2 text-muted text-decoration-line-through' style={{fontSize: '0.8em'}}>{formatCurrency(price ?? 0)}</span>
+                  {/* מחיר מוצר הנחה  */}
+                  <span className='ms-2 text-muted'>{formatCurrency(salePrice ?? 0)}</span>
                 </span>
             </div>
             {onlyToSpecific && (
@@ -75,7 +77,7 @@ export default function SpecificItem({
                     </div>}
 
                 </CardTitle>
-                <span className="mb-2">{shortDescription}</span>
+                <p className="mb-2">{shortDescription}</p>
                 <span className="text-muted">{longDescription}</span>
               </>
           )}
