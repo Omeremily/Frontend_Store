@@ -5,6 +5,8 @@ import Store from "../pages/Store";
 //import Item from "../pages/StoreItem";
 import Register from "../pages/Register";
 import StoreItem from "../pages/StoreItem";
+import Admin from "../pages/Admin";
+import Login from "../pages/Login";
 
 export const routes= createBrowserRouter([
     {
@@ -26,6 +28,14 @@ export const routes= createBrowserRouter([
     {
         path:'/register',
         element:<Register/>
+    },
+    {
+        path:'/admin',
+        element:<Admin/>
+    },
+    {
+        path:'/login',
+        element:<Login/>
     }
 
 ])
