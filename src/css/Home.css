@@ -1,0 +1,53 @@
+/* styles.css */
+
+.banner-container {
+    height: 55vh;
+  }
+  
+  .carousel-container {
+    height: 100%;
+  }
+  
+  .banner-image {
+    height: 65vh;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    color: inherit;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    text-align: inherit;
+    font-size: inherit;
+  }
+
+  /* סגנון עבור הכותרת */
+  .banner-header {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+
+  }
+  
+  /* סגנון עבור הפסקה */
+  .banner-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+.banner-button {
+  font-size: 14px;
+  background-color: rgb(238, 238, 238);
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(138, 138, 138);
+  color: rgb(138, 138, 138);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: rgb(93, 93, 93);
+  color: white;
+}

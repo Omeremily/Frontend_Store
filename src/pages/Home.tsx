@@ -10,7 +10,7 @@ export default function Home() {
       <NavBar />
       <div style={{
         width: '100%',
-        height: '45vh', // כאן נקבע גובה ביחס לגובה של המסך
+        height: '57vh', // כאן נקבע גובה ביחס לגובה של המסך
         position: 'relative',
         overflow: 'hidden',
       }}>

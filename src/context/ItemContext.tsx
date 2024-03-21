@@ -33,7 +33,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         },
         {
             "id": 3,
-            "name": "Sparkling Energy Hydration Drink",
+            "name": "Sparkling Energy Drink",
             "shortDescription": "Drinks",
             "longDescription": "Optimum Nutrition Amino Energy Sparkling Hydration Drink, Electrolytes, Caffeine, Amino Acids, BCAAs, Sugar Free, Juicy Strawberry, 12 Fl Oz, 12 Pack (Packaging May Vary)",
             "minimum": 1,
@@ -56,7 +56,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         },
         {
             "id": 5,
-            "name": "BLESSED Vegan Protein Powder",
+            "name": "BLESSED Protein Powder",
             "shortDescription": "Protein Powder",
             "longDescription": "Plant Based Protein Shake Meal Replacement Powder - 23g of Pea Protein Powder for Women & Men, Dairy Free, Gluten Free, No Sugar Added, 30 Servings (Pumpkin Spice)",
             "minimum": 1,

@@ -10,8 +10,8 @@ export default function NavBar() {
   const { cartQuantity, openCart } = useShoppingCart();
 
   return (
-    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
-      <NavLink to="/" style={{ padding: "0 20px" }}>
+    <NavbarBs sticky="top" className="bg-white shadow-sm">
+      <NavLink to="/" style={{ padding: "0 0px" }}>
         <img src="/imgs/logo.png" style={{ width: "110px" }} alt="Logo" />
       </NavLink>
       <Container>

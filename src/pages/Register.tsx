@@ -46,18 +46,14 @@ export default function Register() {
         }
         
         // Address validation
-        if (errors.address) {
+        if (values.address) {
             // City must be contained in the cities list + only text
-            if (!cities.includes(values.address.city)) {
+            if (!cities.includes(values.address.city) && errors.address) {
                 errors.address.city = 'Invalid city';
             }
             // Street must be contained in the streets list + only text
-            if (!streets.includes(values.address.street)) {
+            if (!streets.includes(values.address.street) && errors.address) {
                 errors.address.street = 'Invalid street';
-            }
-            // Only a number
-            if (isNaN(Number(values.address.houseNum))) {
-                errors.address.houseNum = 'Invalid House Number';
             }
         }
                 
@@ -88,8 +84,8 @@ export default function Register() {
     return (
         <>
           <NavBar />
-          <section className="vh-100">
-            <div className="container h-100">
+          <section className="vh-100 ">
+            <div className="container h-100 mt-3 mb-3">
             <div className="row justify-content-center">
                 <div className="col-lg-12 col-xl-11">
                   <div className="card text-black" style={{ borderRadius: '25px', padding: '5px'  }}>
@@ -134,9 +130,8 @@ export default function Register() {
                                 <label className="form-label" htmlFor="img">Img</label>
                                 <div className="input-group">
                                     <span className="input-group-text"><i className="fas fa-image"></i></span>
-                                    <input type="file" id="img" placeholder="img src" className="form-control" name="img" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.img} required />
+                                    <input type="text" id="img" placeholder="img url here" className="form-control" name="img" required/>
                                 </div>
-                                {loginForm.errors.img && loginForm.touched.img && <p className="error-message">{loginForm.errors.img}</p>}
                             </div>
 
                             {/* שדה תאריך לידה */}
@@ -201,18 +196,7 @@ export default function Register() {
                                     {loginForm.errors.address?.street && loginForm.touched.address?.street && <p className="error-message">{loginForm.errors.address.street}</p>}
                                 </div>
                                 <div className="me-2">
-                                    <input
-                                        type="number"
-                                        id="houseNumber"
-                                        className="form-control"
-                                        name="address.houseNum"
-                                        onChange={loginForm.handleChange}
-                                        onBlur={loginForm.handleBlur}
-                                        value={loginForm.values.address.houseNum}
-                                        required
-                                        placeholder="No."
-                                    />
-                                    {loginForm.errors.address?.houseNum && loginForm.touched.address?.houseNum && <p className="error-message">{loginForm.errors.address.houseNum}</p>}
+                                    <input type="number" id="houseNumber" className="form-control" name="address.houseNum" required placeholder="No."/>
                                 </div>
                             </div>
 
