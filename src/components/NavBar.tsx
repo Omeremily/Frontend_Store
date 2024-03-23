@@ -12,7 +12,7 @@ export default function NavBar() {
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm">
       <NavLink to="/" style={{ padding: "0 0px" }}>
-        <img src="/imgs/logo.png" style={{ width: "110px" }} alt="Logo" />
+        <img src="/imgs/logo.png" style={{ margin: "0 10px", width: "130px" }} alt="Logo" />
       </NavLink>
       <Container>
         <Nav className="me-auto">

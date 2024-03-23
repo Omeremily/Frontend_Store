@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
+      {/* יצירת קרוסלת הבאנרים */}
       <div style={{
         width: '100%',
         height: '57vh', // כאן נקבע גובה ביחס לגובה של המסך
