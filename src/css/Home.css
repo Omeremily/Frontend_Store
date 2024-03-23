@@ -11,6 +11,8 @@
   .banner-image {
     height: 65vh;
     object-fit: cover;
+    display: block;
+    width: 100%;  
   }
   
   .carousel-caption {
@@ -36,6 +38,7 @@
   }
   
 .banner-button {
+  text-decoration: none;
   font-size: 14px;
   background-color: rgb(238, 238, 238);
   padding: 8px 15px;

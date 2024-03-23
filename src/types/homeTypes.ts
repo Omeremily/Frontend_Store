@@ -8,5 +8,8 @@ export type BannerProps = {
     h_fontSize?: string;
     p_fontSize?: string;
     showButton?: boolean;
-    buttonText?: string; 
+    buttonText?: string;
+    linkTo?: string; 
+    sectionId?: string;
+    onClick?: () => void;
   };

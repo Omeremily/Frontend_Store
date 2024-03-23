@@ -137,17 +137,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "price": 70,
             "imgUrl": "/public/imgs/pasta.jpg"
         },
-        {   
-            "id": 6,
-            "name": "Salad",
-            "shortDescription": "Salad",
-            "longDescription": "Salad lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "minimum": 1,
-            "maximum": 10,
-            "salePrice": 50,
-            "price": 50,
-            "imgUrl": "/public/imgs/salad.jpg"
-        }
     ]);
 
     function AddItemToStore(item:StoreItemProps) {

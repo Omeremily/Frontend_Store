@@ -17,8 +17,15 @@ export default function Home() {
       }}>
         <Banner />
       </div>
-      <SaleItemSection />
+      <div id="saleItemSection" style={{
+        margin: '10% auto',
+      }}>
+        <SaleItemSection />
+      </div>
+      <div id="contactus">
       <Contact />
+      </div>
+
     </>
   );
 }

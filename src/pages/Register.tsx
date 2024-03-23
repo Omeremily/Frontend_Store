@@ -2,7 +2,6 @@ import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { User } from "../types/userTypes";
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Register.css';
 
 // רשימות קבועות של ערים ורחובות
@@ -211,7 +210,7 @@ export default function Register() {
                         {/* צד ימין של דף הרשמה (כותרת,תמונה ומעבר לדף התחברות) */}
                         <div className="col-md-10 col-lg-6 col-xl-7 d-flex flex-column align-items-center order-1 order-lg-2">
                             {/* כותרת דף הרשמה */}
-                            <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Registeration</p>
+                            <p className="text-center h1 mb-5 mx-1 mx-md-4 mt-4 ">Registeration</p>
                             {/* תמונה */}
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />
                             {/* כותרת מעבר לדף התחברות במידה ורשומים */}
