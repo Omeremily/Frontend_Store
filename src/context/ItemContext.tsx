@@ -12,7 +12,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 1,
             "name": "Vita JYM Sports Multivitamin",
-            "shortDescription": "Multivitamin",
+            "shortDescription": "Vitamins",
             "longDescription": "Vita JYM Sports Multivitamin & Mineral Support, Vitamin A, C, B6, B12, E, K, Boron, Biotin, Potassium | JYM Supplement Science | 60 Tablets",
             "minimum": 1,
             "maximum": 10,
@@ -23,7 +23,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 2,
             "name": "3 Color Bottles Pack",
-            "shortDescription": "Fitness accessories",
+            "shortDescription": "Fitness Equipment",
             "longDescription": "3 Color Pack(Black,White,Pink)w.Scale 12oz & 400ml for Protein Shake Drink Mix,BPA Free,Classic Loop,Dishwasher Safe,Easy to Clean,Leak Resistance,Whisk...",
             "minimum": 1,
             "maximum": 10,
@@ -41,12 +41,11 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "salePrice": 50,
             "price": 70,
             "imgUrl": "/public/imgs/cart-items/item3.jpg"
-
         },
         {   
             "id": 4,
             "name": "Whey Protein Powder",
-            "shortDescription": "Protein Powders",
+            "shortDescription": "Powders",
             "longDescription": "Optimum Nutrition Gold Standard 100% Whey Protein Powder, Double Rich Chocolate, 5 Pound (Packaging May Vary)",
             "minimum": 1,
             "maximum": 10,
@@ -57,7 +56,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 5,
             "name": "BLESSED Protein Powder",
-            "shortDescription": "Protein Powder",
+            "shortDescription": "Powders",
             "longDescription": "Plant Based Protein Shake Meal Replacement Powder - 23g of Pea Protein Powder for Women & Men, Dairy Free, Gluten Free, No Sugar Added, 30 Servings (Pumpkin Spice)",
             "minimum": 1,
             "maximum": 10,
@@ -123,7 +122,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 11,
             "name": "Sports Duffle Bag",
-            "shortDescription": "Duffle Bag",
+            "shortDescription": "Bags",
             "longDescription": "Sports Duffle Bag with Shoes Compartment and Wet Pocket, 42L Waterproof Gym Bag for Men and Women, Durable Travel Duffel Bag with Shoulder Strap and Combination Lock",
             "minimum": 1,
             "maximum": 10,
@@ -134,14 +133,36 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         {
             "id": 12,
             "name": "FORICH Cooler Backpack",
-            "shortDescription": "Cooler Backpack",
+            "shortDescription": "Bags",
             "longDescription": "FORICH Insulated Cooler Backpack Lightweight Soft Cooler Bag Leakproof Backpack Cooler for Men Women to Lunch Work Picnic Beach Camping Hiking Park Day Trips, 30 Cans",
             "minimum": 1,
             "maximum": 10,
             "salePrice": 80,
             "price": 80,
             "imgUrl": "/public/imgs/cart-items/item12.jpg"
-        }        
+        },
+        {
+            "id": 13,
+            "name": "330 ml UFIT Pack",
+            "shortDescription": "Drinks",
+            "longDescription": "Pack of 10 protein shake drinks 330 ml UFIT with white chocolate flavor<br>UFIT protein shake drinks are full of available energy, nutritious vitamins for the body and rich in protein. The winning taste and pleasant texture make them the leading protein shake drinks in the world!",
+            "minimum": 1,
+            "maximum": 10,
+            "salePrice": 119.90,
+            "price": 159.00,
+            "imgUrl": "/public/imgs/cart-items/item13.webp"
+        },
+        {
+            "id": 14,
+            "name": "ZOA Energy Drink Pack",
+            "shortDescription": "Drinks",
+            "longDescription": "ZOA Energy Drink Pack - All Flavors 16oz (Pack of 60) - Healthy Energy Drinks with B Vitamins, Amino Acids, Camo Camo, Electrolytes and Caffeine.",
+            "minimum": 1,
+            "maximum": 10,
+            "salePrice": 319.90,
+            "price": 350.00,
+            "imgUrl": "/public/imgs/cart-items/item14.webp"
+        },
  ]);
     
 

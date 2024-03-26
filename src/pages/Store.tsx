@@ -12,6 +12,7 @@ export default function Store() {
     const [itemsToShow, setItemsToShow] = useState<StoreItemProps[]>([]);
     const [search, setSearch] = useState('');
     const [sortOrder, setSortOrder] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState('');
 
     useEffect(() => {
       let sortedItems = [...items];
@@ -23,13 +24,19 @@ export default function Store() {
       setItemsToShow(sortedItems);
   }, [sortOrder]);
   
-    useEffect(() => {
-        if (search === '') {
-            setItemsToShow(items);
-        } else {
-            setItemsToShow(items.filter((item: StoreItemProps) => item.name?.toLowerCase().includes(search)))
-        }
-    }, [search, items])
+  useEffect(() => {
+    if (search === '' && !categoryFilter) {
+        setItemsToShow(items);
+    } else {
+        let filteredItems = items.filter((item: StoreItemProps) => {
+            const nameMatches = item.name?.toLowerCase().includes(search);
+            const shortDescMatches = item.shortDescription?.toLowerCase().includes(search);
+            const categoryMatches = item.shortDescription?.toLowerCase() === categoryFilter.toLowerCase();
+            return (nameMatches || shortDescMatches) && (!categoryFilter || categoryMatches);
+        });
+        setItemsToShow(filteredItems);
+    }
+}, [search, categoryFilter, items]);
 
     return (
         <>
@@ -64,6 +71,24 @@ export default function Store() {
                         <option value="">Sort By: (unsorted)</option>
                         <option value="asc">Sort By: Low to High</option>
                         <option value="desc">Sort By: High to Low</option>
+                    </select>
+                    <select 
+                        value={categoryFilter} 
+                        onChange={(e) => { setCategoryFilter(e.target.value); }}
+                        style={{ 
+                            marginLeft: '0.5rem',
+                            padding: '0.5rem',
+                            borderRadius: '4px',
+                            border: '1px solid #ced4da'
+                        }}
+                    >
+                        <option value="">All Categories</option>
+                        <option value="Vitamins">Vitamins</option>
+                        <option value="Drinks">Drinks</option>
+                        <option value="Powders">Powders</option>
+                        <option value="Bags">Bags</option>
+                        <option value="Fitness equipment">Fitness equipment</option>
+                        {/* Add more categories here */}
                     </select>
                 </div>
             </div>
