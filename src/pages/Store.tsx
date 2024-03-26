@@ -14,6 +14,7 @@ export default function Store() {
     const [sortOrder, setSortOrder] = useState('');
     const [categoryFilter, setCategoryFilter] = useState('');
 
+    {/* פונקצית מיון לפי מחיר - asc/desc */}
     useEffect(() => {
       let sortedItems = [...items];
       if (sortOrder === 'asc') {
@@ -22,21 +23,22 @@ export default function Store() {
           sortedItems.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
       }
       setItemsToShow(sortedItems);
-  }, [sortOrder]);
+    }, [sortOrder]);
   
-  useEffect(() => {
-    if (search === '' && !categoryFilter) {
-        setItemsToShow(items);
-    } else {
-        let filteredItems = items.filter((item: StoreItemProps) => {
-            const nameMatches = item.name?.toLowerCase().includes(search);
-            const shortDescMatches = item.shortDescription?.toLowerCase().includes(search);
-            const categoryMatches = item.shortDescription?.toLowerCase() === categoryFilter.toLowerCase();
-            return (nameMatches || shortDescMatches) && (!categoryFilter || categoryMatches);
-        });
-        setItemsToShow(filteredItems);
-    }
-}, [search, categoryFilter, items]);
+    {/* פונקצית סינון קטגוריית מוצר + חיפוש בדף בהתאם לסינון */}
+    useEffect(() => {
+        if (search === '' && !categoryFilter) {
+            setItemsToShow(items);
+        } else {
+            let filteredItems = items.filter((item: StoreItemProps) => {
+                const nameMatches = item.name?.toLowerCase().includes(search);
+                const shortDescMatches = item.shortDescription?.toLowerCase().includes(search);
+                const categoryMatches = item.shortDescription?.toLowerCase() === categoryFilter.toLowerCase();
+                return (nameMatches || shortDescMatches) && (!categoryFilter || categoryMatches);
+            });
+            setItemsToShow(filteredItems);
+        }
+    }, [search, categoryFilter, items]);
 
     return (
         <>
@@ -83,12 +85,11 @@ export default function Store() {
                         }}
                     >
                         <option value="">All Categories</option>
+                        <option value="Fitness equipment">Fitness equipment</option>
                         <option value="Vitamins">Vitamins</option>
                         <option value="Drinks">Drinks</option>
                         <option value="Powders">Powders</option>
                         <option value="Bags">Bags</option>
-                        <option value="Fitness equipment">Fitness equipment</option>
-                        {/* Add more categories here */}
                     </select>
                 </div>
             </div>
