@@ -20,13 +20,15 @@ export default function Admin() {
     }, [])
 
     if (!isAdminLogin) {
-        return ( 
-            <div>
-                <h1>please log in</h1>
-                <Link to="/login"></Link>
-            </div>
-        ) 
-    }
+      return ( 
+          <div className="container">
+              <h1 className="mt-5">Please Log In</h1>
+              <p className="lead">You need to log in as an admin to access this page.</p>
+              <Link to="/login" className="btn btn-primary">Log In</Link>
+          </div>
+      ) 
+  }
+  
 
     return (
         <div>
