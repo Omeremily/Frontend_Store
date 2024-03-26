@@ -42,6 +42,7 @@ export default function Admin() {
               <Link className="text-decoration-none" to={`/item/${item.id}`}>
                 <SpecificItem {...item} />
               </Link>
+              <Link  to="/edit-item-data"><button className="btn btn-danger">Edit</button></Link>
             </Col>
           ))}
         </Row>

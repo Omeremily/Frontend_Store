@@ -7,6 +7,8 @@ import Register from "../pages/Register";
 import StoreItem from "../pages/StoreItem";
 import Admin from "../pages/Admin";
 import Login from "../pages/Login";
+import EditItemData from "../components/EditProductForm";
+import EditProductForm from "../components/EditProductForm";
 
 export const routes= createBrowserRouter([
     {
@@ -36,6 +38,10 @@ export const routes= createBrowserRouter([
     {
         path:'/login',
         element:<Login/>
+    },
+    {
+        path:'/edit-item-data',
+        element:<EditProductForm EditItem={EditItemData} />
     }
 
 ])

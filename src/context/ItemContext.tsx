@@ -144,6 +144,11 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         localStorage.setItem("items", JSON.stringify([...items, item]));
     }
 
+    function EditItem(id:number, item:StoreItemProps) {
+        setItems(items.map((i) => i.id === id ? item : i));
+        localStorage.setItem("items", JSON.stringify(items.map((i) => i.id === id ? item : i)));
+    }
+
     // function DeleteProduct(id:number) {
     //     setItems(items.filter((item) => item.id !== id));
     //     localStorage.setItem("items", JSON.stringify(items.filter((item) => item.id !== id)));
@@ -159,7 +164,8 @@ export default function ItemContextProvider({ children }: { children: React.Reac
         setItems,
         saleItems,
         setSaleItems,
-        AddItemToStore
+        AddItemToStore,
+        EditItem
     }
 
     return (

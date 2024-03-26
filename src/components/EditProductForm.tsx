@@ -2,7 +2,7 @@ import { useFormik } from "formik"
 import { StoreItemProps } from "../types/storeTypes";
 
 
-export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Function} ) {
+export default function EditProductForm( {EditItem}: {EditItem: Function} ) {
 
     const productForm = useFormik<StoreItemProps>({
         initialValues: {
@@ -19,7 +19,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
         },
         onSubmit: (values) => {
             alert(JSON.stringify(values));
-            AddItemToStore(values);
+            EditItem(values);
         }
     })
     return (
@@ -104,16 +104,13 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                     </div>
                                 </div> 
 
-                                <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px', marginTop: '15px'}}>Add new product</button>
+                                <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px', marginTop: '15px'}}>Edit product</button>
                             </form>
 
             </div>
-            {/* צד ימין של דף הרשמה (כותרת,תמונה ומעבר לדף התחברות) */}
             <div className="col-md-10 col-lg-6 col-xl-7 d-flex flex-column align-items-center order-1 order-lg-2">
-                            {/* כותרת דף הרשמה */}
-                            <p className="text-center h1 mb-5 mx-1 mx-md-4 mt-4 ">Add Product</p>
-                            {/* תמונה */}
-                            <img src="/public/imgs/addP.png" className="img-fluid" alt="Sample image" />
+                            <p className="text-center h1 mb-5 mx-1 mx-md-4 mt-4 ">Edit Product</p>
+                            <img src="./public/imgs/pen.png" className="img-fluid" alt="Sample image" />
                         </div>
                       </div>
                     </div>
