@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { StoreItemProps } from "../types/storeTypes";
 import SpecificItem from "../components/specificItem";
 import '../css/Store.css';
+import Footer from "../components/Footer";
 
 export default function Store() {
     const { items } = useContext<any>(ItemContext);
@@ -43,46 +44,35 @@ export default function Store() {
     return (
         <>
             <NavBar />
-            <h1>Store</h1>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                    <input
-                        className="searchBar"
-                        placeholder="Search..."
-                        type="search"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        style={{ 
-                            marginLeft: '0.5rem',
-                            padding: '0.5rem',
-                            borderRadius: '4px',
-                            backgroundColor: 'white',
-                            border: '1px solid #ced4da'
-                        }}
-                    />
+            {/* <h1>Store</h1> */}
+            <Row className="mx-auto mt-3">
+                <Col xs={12} md={6} className="mb-3">
+                    <div className="d-flex align-items-center">
+                        <input
+                            className="form-control"
+                            placeholder="Search..."
+                            type="search"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+                </Col>
+                <Col xs={12} md={3} className="mb-3">
                     <select 
+                        className="form-select"
                         value={sortOrder} 
                         onChange={(e) => { setSortOrder(e.target.value); }}
-                        style={{ 
-                            marginLeft: '0.5rem',
-                            padding: '0.5rem',
-                            borderRadius: '4px',
-                            border: '1px solid #ced4da'
-                        }}
                     >
                         <option value="">Sort By: (unsorted)</option>
                         <option value="asc">Sort By: Low to High</option>
                         <option value="desc">Sort By: High to Low</option>
                     </select>
+                </Col>
+                <Col xs={12} md={3} className="mb-3">
                     <select 
+                        className="form-select"
                         value={categoryFilter} 
                         onChange={(e) => { setCategoryFilter(e.target.value); }}
-                        style={{ 
-                            marginLeft: '0.5rem',
-                            padding: '0.5rem',
-                            borderRadius: '4px',
-                            border: '1px solid #ced4da'
-                        }}
                     >
                         <option value="">All Categories</option>
                         <option value="Fitness equipment">Fitness equipment</option>
@@ -91,8 +81,8 @@ export default function Store() {
                         <option value="Powders">Powders</option>
                         <option value="Bags">Bags</option>
                     </select>
-                </div>
-            </div>
+                </Col>
+            </Row>
             <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 mx-auto">
                 {itemsToShow.map((item: StoreItemProps) => (
                     <Col key={item.id}>
@@ -102,6 +92,7 @@ export default function Store() {
                     </Col>
                 ))}
             </Row>
+            <Footer />
         </>
     );
-}
+}    

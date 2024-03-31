@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import Contact from "../components/contact";
 import SaleItemSection from "../components/SaleItemSection";
 import Banner from "../components/Banner"; // יבוא של קומפוננטת הקרוסלה
+import Footer from "../components/Footer";
 
 
 export default function Home() {
@@ -24,6 +25,9 @@ export default function Home() {
       </div>
       <div id="contactus">
       <Contact />
+      </div>
+      <div id="footer">
+      <Footer />
       </div>
 
     </>
