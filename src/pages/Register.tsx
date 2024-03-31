@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import { User } from "../types/userTypes";
 import { Link } from 'react-router-dom';
 import '../css/Register.css';
+import { useContext } from "react";
+import { UsersContext } from "../context/usersContext";
+
 
 // רשימות קבועות של ערים ורחובות
 const cities = [
@@ -17,6 +20,9 @@ const streets = [
 
 
 export default function Register() {
+
+    const { registerUser } = useContext<any>(UsersContext); 
+
 
     function validate(values: User){
         const errors: Partial<User> = {};
@@ -76,7 +82,9 @@ export default function Register() {
         },
         validate,
         onSubmit: (values) => {
-            alert(JSON.stringify(values));
+            console.log(values);
+            registerUser(values);
+            alert("User registered successfully!");
         }
     })
     
@@ -133,12 +141,12 @@ export default function Register() {
                                 </div>
                             </div>
 
-                            {/* שדה תאריך לידה */}
+                            {/* תאריך לידה  */}
                             <div className="mb-2">
                                 <label className="form-label" htmlFor="birthDate">Birth Date</label>
                                 <div className="input-group">
                                     <span className="input-group-text"><i className="fas fa-calendar-alt"></i></span>
-                                    <input type="date" id="birthDate" className="form-control" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.birthDate.toString()} required />
+                                    <input type="date" id="birthDate" className="form-control" name="birthDate" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur}     value={loginForm.values.birthDate ? new Date(loginForm.values.birthDate).toISOString().split('T')[0] : ''} required />
                                 </div>
                                 {loginForm.errors.birthDateValidate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDateValidate}</p>}
                             </div>

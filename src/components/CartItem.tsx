@@ -43,14 +43,14 @@ export function CartItem({id, quantity}: CartItemProps) {
                     )}
                 </div>
                 <div>
-                    <span className="text-muted">{formatCurrency(item.price)}</span>
+                    <span className="text-muted">{formatCurrency(item.salePrice)}</span>
                 </div>
             </div>
             <div>
                 <Button onClick={()=>decreaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>-</Button>&nbsp;
                 <Button onClick={()=>increaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>+</Button>
                 </div>
-            <div>{formatCurrency(item.price * quantity)}</div>
+            <div>{formatCurrency(item.salePrice * quantity)}</div>
                 <Button variant="outline-danger" size="sm"  onClick={() => removeFromCart(item.id)}>&times;</Button>
         </Stack>
     )

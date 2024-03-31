@@ -22,6 +22,9 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
             AddItemToStore(values);
         }
     })
+
+
+    
     return (
         <>
         <section className="vh-250 ">

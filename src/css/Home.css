@@ -47,7 +47,7 @@
   color: rgb(138, 138, 138);
   text-transform: uppercase;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
 }
 
 .banner-button:hover {
