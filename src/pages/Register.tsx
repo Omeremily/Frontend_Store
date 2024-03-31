@@ -143,6 +143,16 @@ export default function Register() {
                                 {loginForm.errors.birthDateValidate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDateValidate}</p>}
                             </div>
                                 
+                            {/* שדה סיסמה */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="password">Password</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-lock"></i></span>
+                                    <input type="password" id="password" className="form-control" name="password" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required />
+                                </div>
+                                {loginForm.errors.password  && loginForm.touched.password && <p className="error-message">{loginForm.errors.password}</p>}
+                            </div>
+
                             {/* שדה כתובת (עיר,רחוב,מספר בית) */}
                             <label className="form-label">Address</label>
                             <div className="mb-5 d-flex justify-content-between">
