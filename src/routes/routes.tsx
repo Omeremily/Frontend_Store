@@ -8,6 +8,7 @@ import Admin from "../pages/Admin";
 import Login from "../pages/Login";
 import EditItemData from "../components/EditProductForm";
 import EditProductForm from "../components/EditProductForm";
+import AdminStoreAndManage from "../pages/AdminStoreAndManage";
 
 export const routes= createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const routes= createBrowserRouter([
     {
         path:'/edit-item-data',
         element:<EditProductForm EditItem={EditItemData} />
+    },
+    {
+        path:'/AdminStoreAndManage',
+        element:<AdminStoreAndManage/>
     }
 
 ])

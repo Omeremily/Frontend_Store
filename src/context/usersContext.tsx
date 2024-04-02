@@ -27,46 +27,48 @@ export default function UsersContextProvider({ children}:any) {
         }
     }, []);
 
-    // function LoadUsers(){
-    //     let data: string | null = localStorage.getItem('users');
-    //     if (data !== null) {
-    //         let parsedData = JSON.parse(data);
-    //         return parsedData;
-    //     } else {
-    //         return new Array();
+    
+    function EditUser(user:any){
+        setUsers(prevUsers => {
+            const updatedUsers = [...prevUsers, user];
+            SaveToLocal(updatedUsers);
+            return updatedUsers;
+        });
+    }
+
+    // function deleteUser (event: { target: { parentNode: any; }; }) {
+    //     let td = event.target.parentNode;
+    //     let tr = td.parentNode;
+        
+    //     // מציאת האינדקס של היוזר הספציפי בטבלה
+    //     let rowIndex = Array.from(tr.parentNode.children).indexOf(tr)-1;
+        
+    //     // הסרה מהמערך
+    //     if (users && users.length > rowIndex) {
+    //         users.splice(rowIndex, 1);
+            
+    //         // שמירה של המערך המעודכן
+    //         SaveToLocal(users);
+
+    //         tr.remove();
+
     //     }
     // }
+
     
     function SaveToLocal(users:any[])
     {
         localStorage.setItem('users', JSON.stringify(users));
     }
 
-    // function DeleteUser(event: { target: { parentNode: any; }; }){
-    //     let td = event.target.parentNode;
-    //     let tr = td.parentNode;
-      
-    //     // מציאת האינדקס של היוזר הספציפי בטבלה
-    //     let rowIndex = Array.from(tr.parentNode.children).indexOf(tr)-1;
-      
-    //     // הסרה מהמערך
-    //     if (users && users.length > rowIndex) {
-    //       users.splice(rowIndex, 1);
-      
-    //     // שמירה של המערך המעודכן
-    //       SaveToLocal(users);
-    //     }
-      
-    //     // הסרה מהטבלה שאנחנו רואים באתר
-    //     tr.remove();
-    //   }
 
     const value={
         users,
         registerUser,
         //LoadUsers,
         SaveToLocal,
-        //DeleteUser
+        EditUser
+        
     }
 
 

@@ -85,6 +85,8 @@ export default function Register() {
             console.log(values);
             registerUser(values);
             alert("User registered successfully!");
+            window.location.href = "/login";
+
         }
     })
     
@@ -112,17 +114,7 @@ export default function Register() {
                                 {loginForm.errors.email && loginForm.touched.email && <p className="error-message">{loginForm.errors.email}</p>}
                             </div>
 
-                            {/* שדה סיסמה */}
-                            <div className="mb-2">
-                                <label className="form-label" htmlFor="password">Password</label>
-                                <div className="input-group">
-                                    <span className="input-group-text"><i className="fas fa-lock"></i></span>
-                                    <input type="password" id="password" className="form-control" name="password" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required />
-                                </div>
-                                {loginForm.errors.password  && loginForm.touched.password && <p className="error-message">{loginForm.errors.password}</p>}
-                            </div>
 
-                            
                             {/* שדה שם מלא */}
                             <div className="mb-2">
                                 <label className="form-label" htmlFor="fullName">Full Name</label>
@@ -131,6 +123,16 @@ export default function Register() {
                                     <input type="text" id="fullName" placeholder="John Doe" className="form-control" name="fullName" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.fullName} required />
                                 </div>
                                 {loginForm.errors.fullName && loginForm.touched.fullName && <p className="error-message">{loginForm.errors.fullName}</p>}
+                            </div>
+
+                            {/* שדה סיסמה */}
+                            <div className="mb-2">
+                                <label className="form-label" htmlFor="password">Password</label>
+                                <div className="input-group">
+                                    <span className="input-group-text"><i className="fas fa-lock"></i></span>
+                                    <input type="password" id="password" className="form-control" name="password" onChange={loginForm.handleChange} onBlur={loginForm.handleBlur} value={loginForm.values.password} required />
+                                </div>
+                                {loginForm.errors.password  && loginForm.touched.password && <p className="error-message">{loginForm.errors.password}</p>}
                             </div>
 
                             {/* שדה מספר טלפון */}
