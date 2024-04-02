@@ -44,7 +44,6 @@ export default function Store() {
     return (
         <>
             <NavBar />
-            {/* <h1>Store</h1> */}
             <Row className="mx-auto mt-3">
                 <Col xs={12} md={6} className="mb-3">
                     <div className="d-flex align-items-center">
@@ -76,6 +75,7 @@ export default function Store() {
                     >
                         <option value="">All Categories</option>
                         <option value="Fitness equipment">Fitness equipment</option>
+                        <option value="Fitness gadgets">Fitness gadgets</option>
                         <option value="Vitamins">Vitamins</option>
                         <option value="Drinks">Drinks</option>
                         <option value="Powders">Powders</option>

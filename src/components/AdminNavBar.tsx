@@ -7,7 +7,7 @@ export default function AdminNav() {
     <div className="sidebar">
       <div>
       <Nav className="flex-column">
-        <Nav.Link to="/AdminStoreAndManage" as={NavLink}>Manage Store</Nav.Link>
+        <Nav.Link data-test="manage-store" to="/AdminStoreAndManage" as={NavLink}>Manage Store</Nav.Link>
         <Nav.Link to="/UsersTable" as={NavLink}>Manage Users</Nav.Link>
         <Nav.Link to="/dashboard" as={NavLink}>Dashboard</Nav.Link>
       </Nav>     

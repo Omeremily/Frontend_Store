@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import AdminStoreAndManage from "./AdminStoreAndManage";
-import UsersTable from "../components/UsersTable";
+// import AdminStoreAndManage from "./AdminStoreAndManage";
+// import UsersTable from "../components/UsersTable";
 import AdminNav from "../components/AdminNavBar";
 import Footer from "../components/Footer";
 
@@ -32,9 +32,8 @@ export default function Admin() {
         <div>
 
             <NavBar />
-
             <div className="container" style={{ marginTop: "100px", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-                <AdminNav />
+                <AdminNav data-test="sidebar"/>
                 <h1>Admin</h1>
             </div>
             <div>

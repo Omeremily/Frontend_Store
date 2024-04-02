@@ -35,34 +35,39 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                     <div className="card-body p-md-5">
                       <div className="row justify-content-center">
                         <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">     
-                          {/* טופס הרשמה */}
+                          {/* טופס הוספת מוצר */}
                             <form onSubmit={productForm.handleSubmit} className="mx-1 mx-md-4">
+                                {/* מספר סידורי מוצר ID */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="id">Id</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="number" placeholder="id" value={productForm.values.id} onChange={(e) => productForm.setFieldValue('id', e.target.value)} />
+                                        <input data-test="product-id" type="number" placeholder="id" value={productForm.values.id} onChange={(e) => productForm.setFieldValue('id', e.target.value)} />
                                     </div>
                                 </div>
+                                {/* שם המוצר */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="name">Name</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="text" placeholder="" value={productForm.values.name} onChange={(e) => productForm.setFieldValue('name', e.target.value)} />
+                                        <input data-test="product-name" type="text" placeholder="" value={productForm.values.name} onChange={(e) => productForm.setFieldValue('name', e.target.value)} />
                                     </div>
                                 </div>  
+                                {/* קטגורית המוצר / תיאור קצר */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Short Description">Short Description</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="text" placeholder="" value={productForm.values.shortDescription} onChange={(e) => productForm.setFieldValue('shortDescription', e.target.value)} />
+                                        <input data-test="product-category" type="text" placeholder="" value={productForm.values.shortDescription} onChange={(e) => productForm.setFieldValue('shortDescription', e.target.value)} />
                                     </div>
-                                </div>   
+                                </div>  
+                                {/* תיאור ארוך של המוצר שיוצג בדף מוצר */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="longDescription">Long Description</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <textarea 
+                                        <textarea
+                                        data-test="product-description" 
                                         id="longDescription" 
                                         className="form-control" 
                                         placeholder="" 
@@ -71,49 +76,51 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                         />
                                     </div>
                                 </div>    
+                                {/* קישור לתמונה מהאינטרנט של המוצר */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Image">Image</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="text" placeholder="enter img url.." value={productForm.values.imgUrl} onChange={(e) => productForm.setFieldValue('imgUrl', e.target.value)} />
+                                        <input data-test="product-image" type="text" placeholder="Enter img url.." value={productForm.values.imgUrl} onChange={(e) => productForm.setFieldValue('imgUrl', e.target.value)} />
                                     </div>
                                 </div> 
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Minimum">Minimum</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
+                                        <input data-test="product-min" type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
                                     </div>
                                 </div> 
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Maximum">Maximum</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
+                                        <input data-test="product-max" type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
                                     </div>
-                                </div> 
+                                </div>
+                                {/* מחיר מוצר מקורי */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Price">Price</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input type="number" placeholder="price" value={productForm.values.price} onChange={(e) => productForm.setFieldValue('price', e.target.value)} />
+                                        <input data-test="product-price" type="number" placeholder="price" value={productForm.values.price} onChange={(e) => productForm.setFieldValue('price', e.target.value)} />
                                     </div>
                                 </div> 
+                                {/* מחיר מוצר לאחר הנחה */}
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="salePrice">Sale Price</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-email"></i></span>   
-                                        <input type="number" placeholder="salePrice" value={productForm.values.salePrice} onChange={(e) => productForm.setFieldValue('salePrice', e.target.value)} />
+                                        <input data-test="product-sale-price" type="number" placeholder="salePrice" value={productForm.values.salePrice} onChange={(e) => productForm.setFieldValue('salePrice', e.target.value)} />
                                     </div>
                                 </div> 
-
-                                <button type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px', marginTop: '15px'}}>Add new product</button>
+                                {/* כפתור הוספת מוצר לחנות */}
+                                <button data-test="add-product-btn" type="submit" className="btn btn-primary btn-lg" style={{ borderRadius: '8px', padding: '5px 40px', marginTop: '15px'}}>Add new product</button>
                             </form>
-
             </div>
-            {/* צד ימין של דף הרשמה (כותרת,תמונה ומעבר לדף התחברות) */}
+            {/* צד ימין של דף הוספת מוצר */}
             <div className="col-md-10 col-lg-6 col-xl-7 d-flex flex-column align-items-center order-1 order-lg-2">
-                            {/* כותרת דף הרשמה */}
+                            {/* כותרת דף הוספת מוצר */}
                             <p className="text-center h1 mb-5 mx-1 mx-md-4 mt-4 ">Add Product</p>
                             {/* תמונה */}
                             <img src="/public/imgs/addP.png" className="img-fluid" alt="Sample image" />

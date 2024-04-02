@@ -15,7 +15,7 @@ export default function AdminStoreAndManage()
 
     return (
         <>
-        <AddProductForm AddItemToStore={AddItemToStore} />
+        <AddProductForm data-test="add-product-form" AddItemToStore={AddItemToStore} />
     
         <h1>רשימת מוצרים</h1>
             <div>
@@ -23,7 +23,7 @@ export default function AdminStoreAndManage()
                     {items.map((item: StoreItemProps) => (
                     <Col key={item.id}>
                     <Link className="text-decoration-none" to={`/item/${item.id}`}>
-                        <SpecificItem {...item} />
+                        <SpecificItem data-test={`specific-item-${item.id}`} {...item} />
                     </Link>
                     <Link  to="/edit-item-data"><button className="btn btn-danger">Edit</button></Link>
                     </Col>
