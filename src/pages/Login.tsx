@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { Link } from 'react-router-dom';
 import '../css/Register.css'; // Reusing the styling from Register.css
+import Footer from "../components/Footer";
 
 export default function Login() {
 
@@ -81,6 +82,9 @@ export default function Login() {
                     </div>
                 </div>
             </section>
+            <div>
+              <Footer />
+            </div>
         </>
     );
 }

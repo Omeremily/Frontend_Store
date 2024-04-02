@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../css/Register.css';
 import { useContext } from "react";
 import { UsersContext } from "../context/usersContext";
+import Footer from "../components/Footer";
 
 
 // רשימות קבועות של ערים ורחובות
@@ -245,6 +246,9 @@ export default function Register() {
               </div>
             </div>
           </section>
+          <div>
+              <Footer />
+            </div>
         </>
       );
     }   

@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import EditItemData from "../components/EditProductForm";
 import EditProductForm from "../components/EditProductForm";
 import AdminStoreAndManage from "../pages/AdminStoreAndManage";
+import UsersTable from "../components/UsersTable";
 
 export const routes= createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const routes= createBrowserRouter([
     {
         path:'/AdminStoreAndManage',
         element:<AdminStoreAndManage/>
+    },
+    {
+        path:'/UsersTable',
+        element:<UsersTable/>
     }
 
 ])

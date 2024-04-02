@@ -5,6 +5,7 @@ import SpecificItem from "../components/specificItem";
 import AddProductForm from "../components/AddProductForm";
 import { useContext } from "react";
 import { ItemContext } from "../context/ItemContext";
+import Footer from "../components/Footer";
 
 
 export default function AdminStoreAndManage()
@@ -29,6 +30,9 @@ export default function AdminStoreAndManage()
                     ))}
                 </Row>
     
+            </div>
+            <div>
+              <Footer />
             </div>
         </>
 
