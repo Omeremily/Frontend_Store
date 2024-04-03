@@ -6,10 +6,15 @@
     margin: auto;
 }
 
+
 .specific-containter {
     margin-top: 3%;
     display: flex;
     justify-content: center; /* מיקום הכרטיס באמצע המסך */
+}
+
+.card-height{
+    height: 310px;
 }
 
 .specific-card {
@@ -29,3 +34,14 @@
 #item-long-description {
     margin-top: 10px; /* ריווח בין התיאור הקצר לארוך של המוצר */
 }
+
+/* סגנונות עבור מסך גדול */
+@media (min-width: 992px) {
+    
+}
+  
+  /* סגנונות עבור מסך קטן */
+  @media (max-width: 991px) {
+    
+  }
+  

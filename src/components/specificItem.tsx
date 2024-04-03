@@ -41,7 +41,7 @@ export default function SpecificItem({
           )}
       <div className={onlyToSpecific ? 'specific-containter' : 'cards-container'}>
          
-        <Card className={onlyToSpecific ? 'specific-card' : ''}>
+        <Card className={onlyToSpecific ? 'specific-card' : 'card-height'}>
             <Card.Img
             className={onlyToSpecific ? 'specific-image' : ''}
             variant="top" 
