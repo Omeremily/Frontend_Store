@@ -1,13 +1,20 @@
 import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { Link } from 'react-router-dom';
-import '../css/Register.css'; // Reusing the styling from Register.css
+import '../css/Register.css'; 
 import Footer from "../components/Footer";
+import { useContext } from "react";
+import { UsersContext } from "../context/usersContext";
+
 
 export default function Login() {
+    const { loginUser } = useContext<any>(UsersContext);
+
 
     function validate(values: { fullName: string; password: string; }) {
-      const errors: { fullName?: string; password?: string; } = {};
+
+
+        const errors: { fullName?: string; password?: string; } = {};
 
         
         // Full name must be at least 2 characters long and less than 50 characters, containing only English letters
@@ -22,6 +29,7 @@ export default function Login() {
 
         return errors;
     }
+ 
 
     const loginForm = useFormik({
         initialValues: {
@@ -29,11 +37,22 @@ export default function Login() {
             password: '',
         },
         validate,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             console.log(values);
+            if (values.fullName === 'admin' && values.password === 'ad12343211ad') {
+                window.location.href = '/admin';
+            } else {
+                const loginSuccess = await loginUser(values.fullName, values.password);
+                if (loginSuccess) {
+                    window.location.href = '/Home'; 
+                } else {
+                    alert('Wrong username or password');
+                }
+            }
+        },
+    });
 
-        }
-    })
+    
 
     return (
         <>
@@ -88,3 +107,5 @@ export default function Login() {
         </>
     );
 }
+
+

@@ -36,6 +36,22 @@ export default function UsersContextProvider({ children}:any) {
         });
     }
 
+
+    function loginUser(username: string, password: string) {
+        //בדיקה אם הוא נמצא בלוקאל סטורג כלומר אם נרשם
+        const userData = localStorage.getItem(username);
+        if (userData) {
+            const storedUser = JSON.parse(userData);
+            // בדיקה אם הסיסמא תואמת
+            if (storedUser.password === password) {
+                // הכנסה לסשן סטורג
+                sessionStorage.setItem('currentUser', JSON.stringify({ username: storedUser.username }));
+                return true; 
+            }
+        }
+        return false;
+    }
+
     // function deleteUser (event: { target: { parentNode: any; }; }) {
     //     let td = event.target.parentNode;
     //     let tr = td.parentNode;
@@ -67,7 +83,8 @@ export default function UsersContextProvider({ children}:any) {
         registerUser,
         //LoadUsers,
         SaveToLocal,
-        EditUser
+        EditUser,
+        loginUser
         
     }
 

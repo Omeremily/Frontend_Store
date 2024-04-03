@@ -1,9 +1,11 @@
 import { useFormik } from "formik"
 import { StoreItemProps } from "../types/storeTypes";
+import NavBar from "./NavBar";
 
 
 export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Function} ) {
 
+    
     const productForm = useFormik<StoreItemProps>({
         initialValues: {
             id: 0,
@@ -27,6 +29,8 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
     
     return (
         <>
+        <NavBar/>
+
         <section className="vh-250 ">
             <div className="container h-100 mt-3 mb-3">
             <div className="row justify-content-center">
@@ -95,7 +99,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                     <label className="form-label" htmlFor="Maximum">Maximum</label>
                                     <div className="input-group">
                                         <span className="input-group-text"><i className="fas fa-id"></i></span>   
-                                        <input data-test="product-max" type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
+                                        <input data-test="product-max" type="number" placeholder="" value={productForm.values.maximum} onChange={(e) => productForm.setFieldValue('maximum', e.target.value)} />
                                     </div>
                                 </div>
                                 {/* מחיר מוצר מקורי */}
