@@ -1,0 +1,21 @@
+.about-image {
+    border-radius: 15px; /* Add rounded corners to the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.about-content {
+    padding: 20px; /* Add padding to the content */
+    background-color: #f9f9f9; /* Add a light background color */
+    border-radius: 15px; /* Add rounded corners to the content box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.section-title {
+    font-size: 24px; /* Increase font size for the section title */
+    color: #333; /* Set the text color */
+}
+
+.section-description {
+    font-size: 16px; /* Set font size for the section description */
+    color: #555; /* Set the text color */
+}

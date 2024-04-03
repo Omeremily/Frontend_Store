@@ -29,7 +29,7 @@ export default function Register() {
         const errors: Partial<User> = {};
       
         // Full name must be at least 2 characters long and less than 50 characters, containing only English letters
-        if (!/^[A-Za-z]{2,50}$/.test(values.fullName)) {
+        if (!/^[A-Za-z\s]{2,50}$/.test(values.fullName)) {
             errors.fullName = 'Invalid full name';
         }
 
