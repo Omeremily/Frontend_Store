@@ -296,7 +296,8 @@ export default function ItemContextProvider({ children }: { children: React.Reac
                 "salePrice": 102.90,
                 "price": 130.00,
                 "imgUrl": "/public/imgs/cart-items/item20.avif"
-            },];
+            }
+        ];
 
         setItems(itemArr);
         localStorage.setItem("items", JSON.stringify(itemArr));

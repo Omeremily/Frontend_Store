@@ -74,11 +74,10 @@ export default function Store() {
                         onChange={(e) => { setCategoryFilter(e.target.value); }}
                     >
                         <option value="">All Categories</option>
-                        <option value="Fitness equipment">Fitness equipment</option>
-                        <option value="Fitness gadgets">Fitness gadgets</option>
                         <option value="Vitamins">Vitamins</option>
                         <option value="Drinks">Drinks</option>
                         <option value="Powders">Powders</option>
+                        <option value="Fitness equipment">Fitness equipment</option>
                         <option value="Bags">Bags</option>
                     </select>
                 </Col>

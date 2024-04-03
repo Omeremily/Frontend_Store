@@ -1,34 +1,31 @@
-.product-card {
-    height: 100px; /* גובה קבוע לכרטיס מוצר */
+/* CSS */
+.specific-image {
+    border-radius: 8px;
+    height: 100%; /* שימוש בגובה מקסימלי לתמונה כך שהיא תמלא את הגובה */
+    max-width: 70%; /* שימוש ברוחב מקסימלי לתמונה כדי לא לפרוץ את התצוגה */
+    margin: auto;
 }
 
-.cards-container{
-    max-width: 100%;
-}
-
-.specific-containter{
+.specific-containter {
     margin-top: 3%;
+    display: flex;
+    justify-content: center; /* מיקום הכרטיס באמצע המסך */
+}
+
+.specific-card {
+    max-width: 400px;
+    width: 100%;
 }
 
 .specific-body {
-    padding-top: 100px;
-    height: fit-content; /* גובה קבוע לכרטיס מוצר */
-
-}
-
-.specific-image {
-    border-radius: 8px;
-    padding: 50px;
-    height: 450px;
-}
-
-.specific-containter{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    width: 100%;
+    justify-content: space-between;
+    height: 100%;
     text-align: center;
-    padding: 300px;
+}
+
+
+#item-long-description {
+    margin-top: 10px; /* ריווח בין התיאור הקצר לארוך של המוצר */
 }
