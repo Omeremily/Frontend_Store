@@ -1,4 +1,9 @@
-
+.user-circle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
 /* סגנונות עבור מסך גדול */
 @media (min-width: 992px) {
     #nav-links{
@@ -8,6 +13,10 @@
         font-size: large;
         font-weight: 500;
         justify-content: space-between;
+    }
+
+    #nav-cart{
+        margin-right: 20px;
     }
 
     #cart-circle {
@@ -40,5 +49,11 @@
     #cart-circle {
       display: none !important;
     }
+
+    #nav-login{
+        margin: 10px auto;
+    }
   }
+  
+
   
