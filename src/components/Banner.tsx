@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // יבוא של קובץ CSS ש�
 import { Carousel } from 'react-bootstrap'; // יבוא של Carousel מהספרייה של React Bootstrap
 import img1 from "../../public/imgs/home-banner/top-view-yoga-essential-items.jpg"; // יבוא של תמונה ראשונה
 import img2 from "../../public/imgs/home-banner/A_clean_and_modern_image_of_a_male_athlete_order.png"; // יבוא של תמונה שנייה
-import img3 from "../../public/imgs/home-banner/sports-equipment-located-green-shirt.jpg"; // יבוא של תמונה שלישית
+import img3 from "../../public/imgs/home-banner/wepik-export-20240403091022hrW7.jpeg"; // יבוא של תמונה שלישית
 import { BannerProps } from '../types/homeTypes'; // יבוא של סוג נתונים לתכונות הבאנר
 import '../css/Home.css'; // יבוא של קובץ CSS עבור הדף הראשי
 import { Link } from 'react-router-dom'; // יבוא של רכיב Link מהספרייה של react-router-dom
