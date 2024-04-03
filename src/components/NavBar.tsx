@@ -17,7 +17,7 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" style={{ textAlign: "center" }}>
             {/* קישורים לדפים באפליקציה */}
-            <Nav  className="mx-auto" style={{ marginTop: '10px' }}>
+            <Nav id="nav-links">
               <Nav.Link as={NavLink} to="/store">Store</Nav.Link>
               <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
               <Nav.Link as={NavLink} to="/about">About</Nav.Link>

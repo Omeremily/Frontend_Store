@@ -1,7 +1,9 @@
 
 /* סגנונות עבור מסך גדול */
 @media (min-width: 992px) {
-
+    #nav-links{
+        margin-left: 50px;
+    }
     #basic-navbar-nav{
         font-size: large;
         font-weight: 500;
