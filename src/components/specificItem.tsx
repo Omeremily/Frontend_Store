@@ -51,7 +51,7 @@ export default function SpecificItem({
             />
         <Card.Body className={onlyToSpecific ? 'specific-body' : 'd-flex flex-column product-card'}>
             <div className='d-flex justify-content-between w-100 align-items-baseline mb-4'>
-                <span style={{fontSize: '1.1em'}}>{name}</span>
+                <span style={{fontSize: '1em'}}>{name}</span>
                 <span className='d-flex align-items-center'>
                   {/* מחיר מוצר רגיל  */}
                   <span className='ms-2 text-muted text-decoration-line-through' style={{fontSize: '0.8em'}}>{formatCurrency(price ?? 0)}</span>
@@ -83,7 +83,16 @@ export default function SpecificItem({
           )}
       </Card.Body>
     </Card>
+
     </div>
+    {onlyToSpecific && (
+  <div className="text-center my-4">
+    <div className="d-flex justify-content-center">
+      <Link to="/store" className="btn btn-secondary">Return to Store</Link>
+    </div>
+  </div>
+)}
+
     </>
 
     )
