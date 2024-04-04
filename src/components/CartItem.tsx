@@ -32,7 +32,9 @@ export function CartItem({id, quantity}: CartItemProps) {
 
     return (
         <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
-            <img src={item.imgUrl} style={{width: "125px", height: "75px", objectFit: "cover"}}/>
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <img src={item.imgUrl} style={{ width: "100px", height: "75px", objectFit: "contain" }} />
+</div>
             <div className="me-auto">
                 <div>
                     {item.name}{" "}
