@@ -7,12 +7,12 @@ export default function About() {
     <div>
         <NavBar />
         <section className="about-section">
-            <div className="container">
+            <div className="container ">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-4 mt-5 ">
                         <img src={"./public/imgs/about.jpeg"} alt="About" className="img-fluid about-image" />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-8 mt-5">
                         <div className="about-content">
                             <h2 className="section-title">About Us</h2>
                             <p className="section-description">
@@ -34,5 +34,5 @@ i. Mauris hendrerit velit vitae risus cursus, sed ultrices nulla ullamcorper. Ut
         </section>
         <Footer />
     </div>
-);
+  );
 }
