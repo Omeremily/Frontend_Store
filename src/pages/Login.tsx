@@ -37,17 +37,15 @@ export default function Login() {
             password: '',
         },
         validate,
-        onSubmit: async (values) => {
+        onSubmit:  (values) => {
             console.log(values);
             if (values.fullName === 'admin' && values.password === 'ad12343211ad') {
                 window.location.href = '/admin';
             } else {
-                const loginSuccess = await loginUser(values.fullName, values.password);
+                const loginSuccess =  loginUser(values.fullName, values.password);
                 if (loginSuccess) {
-                    window.location.href = '/Home'; 
-                } else {
-                    alert('Wrong username or password');
-                }
+                    window.location.href = '/'; 
+                } 
             }
         },
     });

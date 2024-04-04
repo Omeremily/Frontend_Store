@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { User } from "../types/userTypes";
 
 export const UsersContext = createContext({});
 
@@ -37,20 +38,36 @@ export default function UsersContextProvider({ children}:any) {
     }
 
 
-    function loginUser(username: string, password: string) {
-        //בדיקה אם הוא נמצא בלוקאל סטורג כלומר אם נרשם
-        const userData = localStorage.getItem(username);
-        if (userData) {
-            const storedUser = JSON.parse(userData);
-            // בדיקה אם הסיסמא תואמת
-            if (storedUser.password === password) {
-                // הכנסה לסשן סטורג
-                sessionStorage.setItem('currentUser', JSON.stringify({ username: storedUser.username }));
-                return true; 
-            }
+    function loadUsers() {
+        let userArr: User[] = [];
+        if(localStorage.getItem('users')){
+            userArr = JSON.parse(localStorage.getItem('users') as string) as User[];
         }
-        return false;
+        else 
+            userArr = [
+        ];
+
+        setUsers(userArr);
+        localStorage.setItem("users", JSON.stringify(userArr));
     }
+
+    useEffect(()=>{
+        loadUsers();
+    },[]);
+
+    function loginUser(fullName: string, password: string) {
+
+        const loggedInUser = users.find(user => user.fullName === fullName && user.password === password);
+        if (loggedInUser) {
+            sessionStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+            console.log('User logged in:', loggedInUser);
+            return true;
+        } else {
+            alert('Invalid username or password');    
+            return false;
+    }
+
+}
 
     // function deleteUser (event: { target: { parentNode: any; }; }) {
     //     let td = event.target.parentNode;
