@@ -2,7 +2,6 @@ import NavBar from "../components/NavBar";
 import { useFormik } from "formik";
 import { Link } from 'react-router-dom';
 import '../css/Register.css'; 
-import Footer from "../components/Footer";
 import { useContext } from "react";
 import { UsersContext } from "../context/usersContext";
 
