@@ -17,15 +17,15 @@ export default function About() {
                             <h2 className="section-title">About Us</h2>
                             <p className="section-description">
                                 Lorem ipsum d                                Phasellus at elit vel libero lacinia eleifend. In hac habitasse platea dictumst. Sed auctor lectus non pharetra tempus.
-olor sit amet, consectetur adipiscing elit. Duis eget eros vel libero rhoncus efficitur. Vestibulum auctor condimentum nisl vel dignissim. Nullam non justo ac tortor sollicitudin placerat.
+                                olor sit amet, consectetur adipiscing elit. Duis eget eros vel libero rhoncus efficitur. Vestibulum auctor condimentum nisl vel dignissim. Nullam non justo ac tortor sollicitudin placerat.
                             </p>
                             <p className="section-description">
                                 Nulla facilis                                Phasellus at elit vel libero lacinia eleifend. In hac habitasse platea dictumst. Sed auctor lectus non pharetra tempus.
-i. Mauris hendrerit velit vitae risus cursus, sed ultrices nulla ullamcorper. Ut suscipit tellus eu risus condimentum, non posuere nulla bibendum.
+                                i. Mauris hendrerit velit vitae risus cursus, sed ultrices nulla ullamcorper. Ut suscipit tellus eu risus condimentum, non posuere nulla bibendum.
                             </p>
                             <p className="section-description">
                                 Phasellus at elit vel libero lacinia eleifend.                                Phasellus at elit vel libero lacinia eleifend. In hac habitasse platea dictumst. Sed auctor lectus non pharetra tempus.
- In hac habitasse platea dictumst. Sed auctor lectus non pharetra tempus.
+                                In hac habitasse platea dictumst. Sed auctor lectus non pharetra tempus.
                             </p>
                         </div>
                     </div>
