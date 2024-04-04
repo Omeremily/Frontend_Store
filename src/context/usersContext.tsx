@@ -59,7 +59,8 @@ export default function UsersContextProvider({ children}:any) {
 
         const loggedInUser = users.find(user => user.fullName === fullName && user.password === password);
         if (loggedInUser) {
-            sessionStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+            let updated = [...users, loggedInUser];
+            sessionStorage.setItem("users", JSON.stringify(updated));
             console.log('User logged in:', loggedInUser);
             return true;
         } else {
@@ -98,7 +99,7 @@ export default function UsersContextProvider({ children}:any) {
     const value={
         users,
         registerUser,
-        //LoadUsers,
+        loadUsers,
         SaveToLocal,
         EditUser,
         loginUser
