@@ -48,12 +48,17 @@ export function CartItem({id, quantity}: CartItemProps) {
                     <span className="text-muted">{formatCurrency(item.salePrice)}</span>
                 </div>
             </div>
-            <div>
-                <Button onClick={()=>decreaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>-</Button>&nbsp;
-                <Button onClick={()=>increaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>+</Button>
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div>
+    <Button onClick={()=>decreaseCartQuantity(id!)} style={{ padding: '0rem 0.55rem', fontSize: '1rem', backgroundColor: 'red', border: 'none' }}>-</Button>
+  </div>
+  <div>
+    <Button onClick={()=>increaseCartQuantity(id!)} style={{ padding: '0rem 0.4rem', fontSize: '1rem', backgroundColor: 'green', border: 'none' }}>+</Button>
+  </div>
+</div>
             <div>{formatCurrency(item.salePrice * quantity)}</div>
-                <Button variant="outline-danger" size="sm"  onClick={() => removeFromCart(item.id)}>&times;</Button>
+                <Button variant="outline-danger" size="sm"  onClick={() => removeFromCart(item.id)}>  <i className="fa fa-trash-alt"></i>
+</Button>
         </Stack>
     )
 }
