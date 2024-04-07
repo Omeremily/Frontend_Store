@@ -6,7 +6,9 @@ import { useContext, useEffect, useState } from "react";
 import { StoreItemProps } from "../types/storeTypes";
 import SpecificItem from "../components/specificItem";
 import '../css/Store.css';
+import '../css/Video.css';
 import Footer from "../components/Footer";
+import VideoHero from "../components/VideoHero";
 
 export default function Store() {
     const { items } = useContext<any>(ItemContext);
@@ -44,6 +46,9 @@ export default function Store() {
     return (
         <>
             <NavBar />
+            <div id="hero">
+                <VideoHero src={"../../public/imgs/Video.mp4"} />
+            </div>
             <Row className="mx-auto mt-3">
                 <Col xs={12} md={6} className="mb-3">
                     <div className="d-flex align-items-center">

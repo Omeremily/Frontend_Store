@@ -1,0 +1,18 @@
+.shopping-cart {
+    position: relative; /* הגדרת התווית ביחס לקומפוננטה העגלה */
+  }  
+
+.checkout-button {
+    background-color: #689b55; /* צבע רקע */
+    color: #fff; /* צבע טקסט */
+    border: none; /* הסרת מסגרת */
+    padding: 10px 20px; /* גודל הרווחים */
+    font-size: 16px; /* גודל הגופן */
+    border-radius: 5px; /* מעגליות פינות */
+    cursor: pointer; /* הפעלת סמן העכבר */
+  }
+  
+  .checkout-button:hover {
+    background-color: #0c6b19; /* צבע רקע בעת העכבר מעל הכפתור */
+  }
+  

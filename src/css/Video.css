@@ -1,0 +1,18 @@
+#hero {
+    width: 100%;
+    max-height: 45vh; /* Set the maximum height to 20% of the viewport height */
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* Make sure child elements can be positioned relative to this container */
+    display: flex; /* Use flexbox to center the video horizontally */
+    justify-content: center; /* Center the video horizontally */
+    align-items: center; /* Center the video vertically */
+}
+
+#hero > video {
+    min-width: 100%; /* Ensure the video spans the full width of its container */
+    max-width: none; /* Allow the video to exceed its original width */
+    max-height: 100%; /* Ensure the video doesn't exceed the container's height */
+    object-fit: cover; /* Ensure the video covers the entire container */
+    opacity: 0.8;
+
+}
