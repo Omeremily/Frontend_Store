@@ -17,11 +17,11 @@ export const routes= createBrowserRouter([
         element:<Home/>
     },
     {
-        path:'/about',
+        path:'/about', //הפנייה לדף אודות
         element:<About/>
     },
     {
-        path:'/store',
+        path:'/store', //הפנייה לדף החנות
         element:<Store/>
     },
     {
@@ -29,27 +29,27 @@ export const routes= createBrowserRouter([
         element:<StoreItem/>
     },
     {
-        path:'/register',
+        path:'/register', //הפנייה לדף הרשמה
         element:<Register/>
     },
     {
-        path:'/admin',
+        path:'/admin', //הפנייה לדף אדמין
         element:<Admin/>
     },
     {
-        path:'/login',
+        path:'/login', //הפנייה לדף התחברות
         element:<Login/>
     },
     {
-        path:'/edit-item-data',
+        path:'/edit-item-data', //הפנייה לדף עריכת פרטי מוצר בחנות
         element:<EditProductForm EditItem={EditItemData} />
     },
     {
-        path:'/AdminStoreAndManage',
+        path:'/AdminStoreAndManage', //הפנייה לדף ניהול פונקציות החנות
         element:<AdminStoreAndManage/>
     },
     {
-        path:'/UsersTable',
+        path:'/UsersTable', //הפנייה לדף פנימי באדמין - טבלת ניהול משתמשים
         element:<UsersTable/>
     }
 

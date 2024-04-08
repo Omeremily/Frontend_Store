@@ -5,19 +5,20 @@ import SpecificItem from "../components/specificItem";
 import AddProductForm from "../components/AddProductForm";
 import { useContext } from "react";
 import { ItemContext } from "../context/ItemContext";
-import Footer from "../components/Footer";
 
-
+// לאחר לחיצה על מנג' סטור בדף האדמין
 export default function AdminStoreAndManage()
-    {
-
+{
+    // הוספת מוצרים מהאדמין לדף החנות
     const { items , AddItemToStore } = useContext<any>(ItemContext);
 
     return (
         <>
+        {/* הצגת קומפוננטת טופס הוספת מוצר לחנות */}
         <AddProductForm data-test="add-product-form" AddItemToStore={AddItemToStore} />
-    
-        <h1>רשימת מוצרים</h1>
+
+        {/* הצגת המוצרים בחנות עם אופציה לכפתור עריכה של כל מוצר */}
+        <h1>Products in Store</h1>
             <div>
                 <Row md={2} xs={1} lg={3} className="g-3">
                     {items.map((item: StoreItemProps) => (
@@ -29,10 +30,6 @@ export default function AdminStoreAndManage()
                     </Col>
                     ))}
                 </Row>
-    
-            </div>
-            <div>
-              <Footer />
             </div>
         </>
 

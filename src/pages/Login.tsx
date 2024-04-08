@@ -5,23 +5,23 @@ import '../css/Register.css';
 import { useContext } from "react";
 import { UsersContext } from "../context/usersContext";
 
-
 export default function Login() {
+
+    // משיכת המשתמשים מתוך היוזר-קונטקסט
     const { loginUser } = useContext<any>(UsersContext);
 
-
+    // הפעלת פונקצית אימות פורמיק
     function validate(values: { fullName: string; password: string; }) {
 
-
+        // הצגת הודעות שגיאה בהתאם
         const errors: { fullName?: string; password?: string; } = {};
 
-        
-        // Full name must be at least 2 characters long and less than 50 characters, containing only English letters
+        // שם מלא חייב להכיל לפחות 2 ומקסימום 50 תווים. אותיות באנגלית ואמצעי ריווח בלבד
         if (!/^[A-Za-z\s]{2,50}$/.test(values.fullName)) {
             errors.fullName = 'Invalid full name';
         }
 
-        // Password must contain only English letters, numbers, and the following special characters: !@#$%^&*
+        // סיסמה יכולה להכיל אותיות באנגלית, מספרים וסימנים המיוחדים האלו בלבד : !@#$%^&*
         if (!/^[a-zA-Z0-9!@#$%^&*]+$/.test(values.password)) {
             errors.password = 'Invalid password';
         }
@@ -36,6 +36,7 @@ export default function Login() {
             password: '',
         },
         validate,
+        // בעת לחיצה על כפתור הסאבמיט - במידה וזוהו פרטי האדמין מעבר לדף האדמין אחרת מעבר לדף הבית לאחר וידוא שאין שגיאות
         onSubmit:  (values) => {
             console.log(values);
             if (values.fullName === 'admin' && values.password === 'ad12343211ad') {

@@ -5,39 +5,25 @@ import { CartItemProps } from "../types/storeTypes";
 import { Button, Stack } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
 
-
-export function CartItem({id, quantity}: CartItemProps) {
-
-    const customStyles = {
-        smallButton: {
-          padding: '0.05rem 0.4rem', // You can adjust the padding to make the buttons smaller
-          fontSize: '0.75rem', // You can adjust the font size to make the buttons smaller
-        },
-      }; 
-
-
+export function CartItem({ id, quantity }: CartItemProps) {
     const { items } = useContext<any>(ItemContext);
-    console.log("Items from context:", items); 
+    console.log("Items from context:", items);
 
-    const { increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
-
-    //const quantity = id !== undefined ? getItemQuantity(id) : 0;
-
-
-    //const {removeFromCart} = useShoppingCart();
+    const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
 
     const item = items.find((i: { id: number; }) => i.id === id);
-
-    if(item == null) return null;
+    if (item == null) return null;
 
     return (
         <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
-            <img src={item.imgUrl} style={{width: "125px", height: "75px", objectFit: "cover"}}/>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <img src={item.imgUrl} style={{ width: "100px", height: "75px", objectFit: "contain" }} />
+            </div>
             <div className="me-auto">
                 <div>
                     {item.name}{" "}
                     {quantity > 1 && (
-                        <span className="text-muted" style={{fontSize: ".65rem"}}>
+                        <span className="text-muted" style={{ fontSize: ".65rem" }}>
                             x{quantity}
                         </span>
                     )}
@@ -46,12 +32,18 @@ export function CartItem({id, quantity}: CartItemProps) {
                     <span className="text-muted">{formatCurrency(item.salePrice)}</span>
                 </div>
             </div>
-            <div>
-                <Button onClick={()=>decreaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>-</Button>&nbsp;
-                <Button onClick={()=>increaseCartQuantity(id!)} variant="primary" size="sm" style={customStyles.smallButton}>+</Button>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div>
+                    <Button onClick={() => decreaseCartQuantity(id!)} style={{ padding: '0rem 0.55rem', fontSize: '1rem', backgroundColor: 'red', border: 'none' }}>-</Button>
                 </div>
+                <div>
+                    <Button onClick={() => increaseCartQuantity(id!)} style={{ padding: '0rem 0.4rem', fontSize: '1rem', backgroundColor: 'green', border: 'none' }}>+</Button>
+                </div>
+            </div>
             <div>{formatCurrency(item.salePrice * quantity)}</div>
-                <Button variant="outline-danger" size="sm"  onClick={() => removeFromCart(item.id)}>&times;</Button>
+            <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)}>
+                <i className="fa fa-trash-alt"></i>
+            </Button>
         </Stack>
     )
 }
