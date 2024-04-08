@@ -1,12 +1,29 @@
-import NavBar from "../components/NavBar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UsersContext } from "../context/usersContext";
+import NavBar from "../components/NavBar";
+import EditUserForm from "../components/EditUserForm";
 import { Link } from "react-router-dom";
 
 export default function Profile() {
-    // משיכת המשתמש המחובר מהיוזר-קונטקסט
     const { logoutClient } = useContext<any>(UsersContext);
-    const loggedInUser = JSON.parse(sessionStorage.getItem("users") || "");
+    const [loggedInUser, setLoggedInUser] = useState(JSON.parse(sessionStorage.getItem("users") || ""));
+    const [editMode, setEditMode] = useState(false);
+
+    const handleEditClick = () => {
+        setEditMode(true);
+    };
+
+    const handleSave = (editedUser: any) => {
+        // Update loggedInUser with edited data
+        setLoggedInUser(editedUser);
+
+        // Close edit mode
+        setEditMode(false);
+    };
+
+    const handleClose = () => {
+        setEditMode(false);
+    };
 
     return (
         <>
@@ -26,12 +43,18 @@ export default function Profile() {
                                                     <p className="text-center h5 mb-5 mx-1 mx-md-4">Email: {loggedInUser.email}</p>
                                                     <p className="text-center h5 mb-5 mx-1 mx-md-4">Phone Number: {loggedInUser.phoneNumber}</p>
                                                     <p className="text-center h5 mb-5 mx-1 mx-md-4">Birth Date: {new Date(loggedInUser.birthDate).toLocaleDateString()}</p>
-                                                    {/* ניתן להוסיף פרטים נוספים כפי שנדרש */}
-                                                    <div className="d-flex justify-content-center mx-4">
-                                                    <button onClick={() => logoutClient()} className="btn btn-danger btn-lg mb-5 mt-3" style={{ borderRadius: '8px', padding: '5px 40px' }}>
-                                                        <Link to="/login" style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>
-                                                    </button>
-                                                    </div>
+                                                    {editMode ? (
+                                                        <EditUserForm user={loggedInUser} onSave={handleSave} onClose={handleClose} />
+                                                    ) : (
+                                                        <div className="d-flex justify-content-center mx-4">
+                                                            <button onClick={handleEditClick} className="btn btn-primary btn-lg mb-5 mt-3 me-3" style={{ borderRadius: '8px', padding: '5px 40px' }}>
+                                                                Edit Profile
+                                                            </button>
+                                                            <button onClick={() => logoutClient()} className="btn btn-danger btn-lg mb-5 mt-3" style={{ borderRadius: '8px', padding: '5px 40px' }}>
+                                                                <Link to="/login" style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>
+                                                            </button>
+                                                        </div>
+                                                    )}
                                                 </>
                                             ) : (
                                                 <p className="text-center h1 mb-5 mx-1 mx-md-4 mt-4">Please login to view your profile</p>
