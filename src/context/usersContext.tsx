@@ -1,16 +1,16 @@
 import { createContext, useState, useEffect } from "react";
 import { User } from "../types/userTypes";
 
-export const UsersContext = createContext({});
+export const UsersContext = createContext<any>({});
 
-export default function UsersContextProvider({ children}:any) {
+export default function UsersContextProvider({ children }: any) {
 
-    //מערך של כל המשתמשים באתר
-    const [users, setUsers] = useState<any[]>([]);
+    // מערך של כל המשתמשים באתר
+    const [users, setUsers] = useState<User[]>([]);
 
-    //Register user: פונקציה המקבלת את כל פרטי המשתמש, יוצרת משתמש חדש ומוסיפה
-    //אותו למאגר המשתמשים
-    function registerUser(user:any){
+    // Register user: פונקציה המקבלת את כל פרטי המשתמש, יוצרת משתמש חדש ומוסיפה
+    // אותו למאגר המשתמשים
+    function registerUser(user: User) {
         // Update the state using a callback
         setUsers(prevUsers => {
             const updatedUsers = [...prevUsers, user];
@@ -18,7 +18,51 @@ export default function UsersContextProvider({ children}:any) {
             return updatedUsers;
         });
     }
-    
+
+    // הפונקציה דיאקטיבייט מקבלת כתובת מייל ומגדירה את המשתמש המתאים כלא פעיל
+    function deactivateClient(email: string) {
+        const updatedUsers = users.map(user => {
+            if (user.email === email) {
+                return { ...user, isActive: false };
+            }
+            return user;
+        });
+        setUsers(updatedUsers);
+        SaveToLocal(updatedUsers);
+    }
+
+    // הפונקציה reactivateClient מקבלת כתובת מייל ומגדירה את המשתמש המתאים כפעיל
+    function reactivateClient(email: string) {
+        const updatedUsers = users.map(user => {
+            if (user.email === email) {
+                return { ...user, isActive: true };
+            }
+            return user;
+        });
+        setUsers(updatedUsers);
+        SaveToLocal(updatedUsers);
+    }
+
+    // הפונקציה ניתוק משתמש מקבלת כתובת מייל ובודקת האם המשתמש הוא המשתמש המחובר, 
+    // ואם כן מנתקת אותו מהמערכת על ידי ניקוי הסשן סטורג
+    function logoutClient(email: string) {
+        const loggedInUser = JSON.parse(sessionStorage.getItem('users') || '');
+        if (loggedInUser.email === email) {
+            sessionStorage.removeItem('users');
+        }
+    }
+
+    // הפונקציה עריכת משתמש מקבלת את כל פרטי הלקוח ומעדכנת אותם למעט כתובת המייל
+    function editClient(updatedUser: User) {
+        const updatedUsers = users.map(user => {
+            if (user.email === updatedUser.email) {
+                return updatedUser;
+            }
+            return user;
+        });
+        setUsers(updatedUsers);
+        SaveToLocal(updatedUsers);
+    }
 
     useEffect(() => {
         // Load users from localStorage when component mounts
@@ -28,87 +72,51 @@ export default function UsersContextProvider({ children}:any) {
         }
     }, []);
 
-    
-    function EditUser(user:any){
-        setUsers(prevUsers => {
-            const updatedUsers = [...prevUsers, user];
-            SaveToLocal(updatedUsers);
-            return updatedUsers;
-        });
-    }
-
-
     function loadUsers() {
         let userArr: User[] = [];
-        if(localStorage.getItem('users')){
+        if (localStorage.getItem('users')) {
             userArr = JSON.parse(localStorage.getItem('users') as string) as User[];
         }
-        else 
-            userArr = [
-        ];
-
+        else
+            userArr = [];
         setUsers(userArr);
         localStorage.setItem("users", JSON.stringify(userArr));
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         loadUsers();
-    },[]);
+    }, []);
 
     function loginUser(fullName: string, password: string) {
-
         const loggedInUser = users.find(user => user.fullName === fullName && user.password === password);
         if (loggedInUser) {
-            let updated = [...users, loggedInUser];
-            sessionStorage.setItem("users", JSON.stringify(updated));
+            sessionStorage.setItem("users", JSON.stringify(loggedInUser));
             console.log('User logged in:', loggedInUser);
             return true;
         } else {
-            alert('Invalid username or password');    
+            alert('Invalid username or password');
             return false;
+        }
     }
 
-}
-
-    // function deleteUser (event: { target: { parentNode: any; }; }) {
-    //     let td = event.target.parentNode;
-    //     let tr = td.parentNode;
-        
-    //     // מציאת האינדקס של היוזר הספציפי בטבלה
-    //     let rowIndex = Array.from(tr.parentNode.children).indexOf(tr)-1;
-        
-    //     // הסרה מהמערך
-    //     if (users && users.length > rowIndex) {
-    //         users.splice(rowIndex, 1);
-            
-    //         // שמירה של המערך המעודכן
-    //         SaveToLocal(users);
-
-    //         tr.remove();
-
-    //     }
-    // }
-
-    
-    function SaveToLocal(users:any[])
-    {
+    function SaveToLocal(users: User[]) {
         localStorage.setItem('users', JSON.stringify(users));
     }
 
-
-    const value={
+    const value = {
         users,
         registerUser,
         loadUsers,
         SaveToLocal,
-        EditUser,
+        editClient,
+        deactivateClient,
+        reactivateClient,
+        logoutClient,
         loginUser
-        
     }
 
-
     return (
-        <UsersContext.Provider value={value as any}>
+        <UsersContext.Provider value={value}>
             {children}
         </UsersContext.Provider>
     );

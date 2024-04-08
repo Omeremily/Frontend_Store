@@ -45,7 +45,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="id">Id</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="fas fa-id-badge"></i></span>
                                         <input data-test="product-id" type="number" placeholder="id" value={productForm.values.id} onChange={(e) => productForm.setFieldValue('id', e.target.value)} />
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="name">Name</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-file-alt"></i></span>
                                         <input data-test="product-name" type="text" placeholder="" value={productForm.values.name} onChange={(e) => productForm.setFieldValue('name', e.target.value)} />
                                     </div>
                                 </div>  
@@ -61,7 +61,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Short Description">Short Description</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-file-alt"></i></span>
                                         <input data-test="product-category" type="text" placeholder="" value={productForm.values.shortDescription} onChange={(e) => productForm.setFieldValue('shortDescription', e.target.value)} />
                                     </div>
                                 </div>  
@@ -69,7 +69,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="longDescription">Long Description</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-file-alt"></i></span>
                                         <textarea
                                         data-test="product-description" 
                                         id="longDescription" 
@@ -84,21 +84,21 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Image">Image</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-image"></i></span>
                                         <input data-test="product-image" type="text" placeholder="Enter img url.." value={productForm.values.imgUrl} onChange={(e) => productForm.setFieldValue('imgUrl', e.target.value)} />
                                     </div>
                                 </div> 
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Minimum">Minimum</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="fas fa-sort-numeric-down-alt"></i></span> {/* מינימום כמות */}
                                         <input data-test="product-min" type="number" placeholder="" value={productForm.values.minimum} onChange={(e) => productForm.setFieldValue('minimum', e.target.value)} />
                                     </div>
                                 </div> 
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Maximum">Maximum</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="fas fa-sort-numeric-up-alt"></i></span> {/* מקסימום כמות */}
                                         <input data-test="product-max" type="number" placeholder="" value={productForm.values.maximum} onChange={(e) => productForm.setFieldValue('maximum', e.target.value)} />
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="Price">Price</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-id"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-money-bill-alt"></i></span>
                                         <input data-test="product-price" type="number" placeholder="price" value={productForm.values.price} onChange={(e) => productForm.setFieldValue('price', e.target.value)} />
                                     </div>
                                 </div> 
@@ -114,7 +114,7 @@ export default function AddProductForm( {AddItemToStore}: {AddItemToStore: Funct
                                 <div className="mb-2">
                                     <label className="form-label" htmlFor="salePrice">Sale Price</label>
                                     <div className="input-group">
-                                        <span className="input-group-text"><i className="fas fa-email"></i></span>   
+                                    <span className="input-group-text"><i className="far fa-money-bill-alt"></i></span>
                                         <input data-test="product-sale-price" type="number" placeholder="salePrice" value={productForm.values.salePrice} onChange={(e) => productForm.setFieldValue('salePrice', e.target.value)} />
                                     </div>
                                 </div> 

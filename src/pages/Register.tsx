@@ -13,7 +13,7 @@ const cities = [
     "Ashdod", "Netanya", "Beer Sheva", "Bnei Brak", "Holon"
 ];
 const streets = [
-    "Rothschild", "Ben Yehuda", "Allenby", "Dizengoff", "Herzl",
+    "Rothschild", "Ben Yehuda", "Allenby", "Dizengoff", "זהHerzl",
     "King George", "Beit Habad", "Yaffo", "Bialik", "Haim Ozer"
 ];
 
@@ -151,7 +151,7 @@ export default function Register() {
                                 <label className="form-label" htmlFor="img">Img</label>
                                 <div className="input-group">
                                     <span className="input-group-text"><i className="fas fa-image"></i></span>
-                                    <input type="text" id="img" placeholder="img url here" className="form-control" name="img" required/>
+                                    <input type="text" id="img" placeholder="img url here" className="form-control" name="img" onChange={(event) => { const imgUrl = event.target.value; loginForm.setFieldValue("img", imgUrl); }} required/>
                                 </div>
                             </div>
 
