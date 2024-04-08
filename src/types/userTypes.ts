@@ -32,4 +32,3 @@ export type PurchaseHistoryType= {
     }[],
     purchaseDate: Date
 }
-
