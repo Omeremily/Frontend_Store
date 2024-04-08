@@ -7,11 +7,9 @@ export default function ItemContextProvider({ children }: { children: React.Reac
 
 
     //רשימת המוצרים בחנות
-
     const [items, setItems] = useState<StoreItemProps[]>([]);
 
 
-    //רשימת מוצרים במבצע בדף הראשי
     const [saleItems, setSaleItems] = useState<StoreItemProps[]>([
         {
             "id": 1,
