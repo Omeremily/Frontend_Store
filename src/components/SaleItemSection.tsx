@@ -11,7 +11,7 @@ export default function SaleItemSection() {
 
   return (
     <>
-      <h1 style={{ margin: '20px auto', textAlign: 'center', fontFamily: 'Open Sans, sans-serif', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Items on sale</h1>
+      <h1 style={{ margin: '20px auto', textAlign: 'center', fontFamily: 'Open Sans, sans-serif', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Hot Deals</h1>
       <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4 mx-auto">
         {saleItems.map((item: StoreItemProps) => (
           <React.Fragment key={item.id}>

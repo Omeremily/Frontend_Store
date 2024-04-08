@@ -7,7 +7,6 @@ import { useContext, useState } from "react";
 import { ItemContext } from "../context/ItemContext";
 import '../css/shoppingCart.css';
 
-//
 export function ShoppingCart({isOpen}: ShoppingCartProps) {
 
     const { closeCart, cartItems } = useShoppingCart ();

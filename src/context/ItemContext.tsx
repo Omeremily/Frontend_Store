@@ -59,7 +59,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "Plant Based Protein Shake Meal Replacement Powder - 23g of Pea Protein Powder for Women & Men, Dairy Free, Gluten Free, No Sugar Added, 30 Servings (Pumpkin Spice)",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 220,
             "price": 220,
             "imgUrl": "/public/imgs/cart-items/item5.jpg"
         },
@@ -91,7 +90,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "Adjustable Weight Bench, Foldable Workout Bench for Full Body Exercise, Multi-Purpose Incline Decline Bench for Home Gym Strength Training - 550 lbs Capacity",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 349,
             "price": 427,
             "imgUrl": "/public/imgs/cart-items/item8.jpg"
         },
@@ -102,7 +100,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "Stationary Exercise Bike with Magnetic Resistance, Quiet Indoor Cycling Bike with Comfortable Seat Cushion, LCD Monitor, Tablet Holder, for Home Cardio Workout",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 599.99,
             "price": 750,
             "imgUrl": "/public/imgs/cart-items/item9.jpg"
         },
@@ -134,6 +131,7 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "FORICH Insulated Cooler Backpack Lightweight Soft Cooler Bag Leakproof Backpack Cooler for Men Women to Lunch Work Picnic Beach Camping Hiking Park Day Trips, 30 Cans",
             "minimum": 1,
             "maximum": 10,
+            "salePrice": 69.99,
             "price": 80,
             "imgUrl": "/public/imgs/cart-items/item12.jpg"
         },
@@ -144,7 +142,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "Pack of 10 protein shake drinks 330 ml UFIT with white chocolate flavor. UFIT protein shake drinks are full of available energy, nutritious vitamins for the body and rich in protein. The winning taste and pleasant texture make them the leading protein shake drinks in the world!",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 119.90,
             "price": 159.00,
             "imgUrl": "/public/imgs/cart-items/item13.webp"
         },
@@ -188,7 +185,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "A set of 8 dumbbells that come in a fancy suitcase, the dumbbells are made of durable cast iron along with a special neoprene coating that prevents slipping. Neoprene coated dumbbells are the ideal tool for toning the body and building muscle mass. Suitable for all endurance and strength training.",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 130.00,
             "price": 130.00,
             "imgUrl": "/public/imgs/cart-items/item17.jpg"
         },
@@ -210,7 +206,6 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "longDescription": "The product contains 100 capsules containing a balanced mixture of essential vitamins. Includes vitamin A, C, D, E and B vitamins, such as B12 and B6. These vitamins play essential roles in supporting various bodily functions, such as the function of the immune system. Energy production and cognitive health. In addition to vitamins, it also provides essential minerals such as calcium and magnesium. zinc and selenium. These minerals are necessary for maintaining bone health. Supporting muscle function and promoting optimal cell function throughout the body.",
             "minimum": 1,
             "maximum": 10,
-            "salePrice": 171.00,
             "price": 171.00,
             "imgUrl": "/public/imgs/cart-items/item19.jpg"
         },
@@ -224,6 +219,17 @@ export default function ItemContextProvider({ children }: { children: React.Reac
             "price": 130.00,
             "imgUrl": "/public/imgs/cart-items/item20.avif"
         },
+        {
+            "id":21,
+            "name":"Apple Watch SE",
+            "shortDescription":"fitness equipment",
+            "longDescription":"The smart watch from Apple is the ultimate device for a healthier life. It brings with it encouraging fitness indicators, innovative health and safety features, and now with carbon neutral case and vehicle combinations",
+            "minimum": 1,
+            "maximum": 10,
+            "imgUrl":"https://d2d22nphq0yz8t.cloudfront.net/6cbcadef-96e0-49e9-b3bd-9921afe362db/https://www.payngo.co.il/media/catalog/product/a/p/apple_watch_se_gps_44mm_silver_aluminum_winter_blue_sport_loop_pdp_image_2023_position-2__wwen.jpg",
+            "salePrice":999,
+            "price":1400
+        }
 
     ]);
 

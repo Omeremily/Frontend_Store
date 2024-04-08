@@ -35,7 +35,10 @@ export default function Admin() {
             <div className="container" style={{ marginTop: "100px", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
                 {/* הצגת קומפוננטת אופציות פעולות האדמין */}
                 <AdminNav data-test="sidebar"/>
-                <h1>Admin</h1>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <h1>Admin</h1>
+                    <img src="../../public/imgs/admin.svg" alt="Admin" style={{ width: "400px" }} />
+                </div>
             </div>
 
             <Footer />    
