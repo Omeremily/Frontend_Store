@@ -1,17 +1,14 @@
 import { createContext, useState, useEffect } from "react";
 import { User } from "../types/userTypes";
+import { Link } from "react-router-dom";
 
 export const UsersContext = createContext<any>({});
 
 export default function UsersContextProvider({ children }: any) {
 
-    // מערך של כל המשתמשים באתר
     const [users, setUsers] = useState<User[]>([]);
 
-    // Register user: פונקציה המקבלת את כל פרטי המשתמש, יוצרת משתמש חדש ומוסיפה
-    // אותו למאגר המשתמשים
     function registerUser(user: User) {
-        // Update the state using a callback
         setUsers(prevUsers => {
             const updatedUsers = [...prevUsers, user];
             SaveToLocal(updatedUsers);
@@ -19,7 +16,6 @@ export default function UsersContextProvider({ children }: any) {
         });
     }
 
-    // הפונקציה דיאקטיבייט מקבלת כתובת מייל ומגדירה את המשתמש המתאים כלא פעיל
     function deactivateClient(email: string) {
         const updatedUsers = users.map(user => {
             if (user.email === email) {
@@ -31,7 +27,6 @@ export default function UsersContextProvider({ children }: any) {
         SaveToLocal(updatedUsers);
     }
 
-    // הפונקציה reactivateClient מקבלת כתובת מייל ומגדירה את המשתמש המתאים כפעיל
     function reactivateClient(email: string) {
         const updatedUsers = users.map(user => {
             if (user.email === email) {
@@ -43,16 +38,16 @@ export default function UsersContextProvider({ children }: any) {
         SaveToLocal(updatedUsers);
     }
 
-    // הפונקציה ניתוק משתמש מקבלת כתובת מייל ובודקת האם המשתמש הוא המשתמש המחובר, 
-    // ואם כן מנתקת אותו מהמערכת על ידי ניקוי הסשן סטורג
-    function logoutClient(email: string) {
-        const loggedInUser = JSON.parse(sessionStorage.getItem('users') || '');
-        if (loggedInUser.email === email) {
-            sessionStorage.removeItem('users');
-        }
+    function logoutClient() {
+        sessionStorage.removeItem('users');
+        return (
+            <>
+                {/* הוסף את הקישור לדף התחברות */}
+              <Link to="/login" onClick={logoutClient}>Logout</Link>
+            </>
+        );
     }
-
-    // הפונקציה עריכת משתמש מקבלת את כל פרטי הלקוח ומעדכנת אותם למעט כתובת המייל
+    
     function editClient(updatedUser: User) {
         const updatedUsers = users.map(user => {
             if (user.email === updatedUser.email) {
@@ -65,7 +60,6 @@ export default function UsersContextProvider({ children }: any) {
     }
 
     useEffect(() => {
-        // Load users from localStorage when component mounts
         const data: string | null = localStorage.getItem('users');
         if (data !== null) {
             setUsers(JSON.parse(data));
@@ -77,8 +71,6 @@ export default function UsersContextProvider({ children }: any) {
         if (localStorage.getItem('users')) {
             userArr = JSON.parse(localStorage.getItem('users') as string) as User[];
         }
-        else
-            userArr = [];
         setUsers(userArr);
         localStorage.setItem("users", JSON.stringify(userArr));
     }

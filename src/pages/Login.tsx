@@ -32,7 +32,7 @@ export default function Login() {
             password: '',
         },
         validate,
-        onSubmit:  (values) => {
+        onSubmit: (values) => {
             if (values.fullName === 'admin' && values.password === 'ad12343211ad') {
                 const adminUser = {
                     fullName: 'admin',
@@ -41,15 +41,21 @@ export default function Login() {
                 sessionStorage.setItem("admin", JSON.stringify(adminUser));
                 window.location.href = '/admin';
             } else {
-                const loginSuccess =  loginUser(values.fullName, values.password);
+                const loginSuccess = loginUser(values.fullName, values.password);
                 if (loginSuccess) {
-                    window.location.href = '/';
+                    // נשאל את המשתמש אם הוא רוצה לעבור לדף הפרופיל או לדף החנות
+                    const goToProfile = window.confirm('Would you like to go to your profile page?');
+                    if (goToProfile) {
+                        window.location.href = '/profile';
+                    } else {
+                        window.location.href = '/';
+                    }
                 } else {
                     alert('Invalid username or password');
                 }
             }
         }
-    });
+            });
 
     return (
         <>
