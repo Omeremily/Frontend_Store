@@ -105,6 +105,7 @@ export default function UsersContextProvider({ children }: any) {
 
     const value = {
         users,
+        setUsers,
         registerUser,
         loadUsers,
         SaveToLocal,

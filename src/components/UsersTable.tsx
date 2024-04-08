@@ -1,15 +1,31 @@
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UsersContext } from '../context/usersContext';
-import AddUser from './AddUser'; 
+import AddUser from './AddUser';
+import { User } from '../types/userTypes';
+import EditUserForm from './EditUserForm';
 
 export default function UsersTable() {
-    const { users, editClient, deactivateClient, reactivateClient } = useContext<any>(UsersContext);
+    const { users, deactivateClient, reactivateClient } = useContext(UsersContext);
+    const [editingUser, setEditingUser] = useState<User | null>(null);
+    const handleEdit = (user: User) => {
+        setEditingUser(user);
+    };
 
-    const handleDeactivate = (email: string) => {
+    const handleSaveEdit = (editedUser: any) => {
+        // Call a function to save the edited user
+        console.log('Edited user:', editedUser);
+        setEditingUser(null); // Close the edit form
+    };
+
+    const handleCloseEdit = () => {
+        setEditingUser(null); // Close the edit form
+    };
+
+    const handleDeactivate = (email: any) => {
         deactivateClient(email);
     };
 
-    const handleReactivate = (email: string) => {
+    const handleReactivate = (email: any) => {
         reactivateClient(email);
     };
 
@@ -31,7 +47,7 @@ export default function UsersTable() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user: any, index: number) => (
+                        {users.map((user: User, index: React.Key | null | undefined) => (
                             <tr key={index}> 
                                 <td><img src={user.img} alt="Profile" style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }} /></td>
                                 <td>{user.email}</td>
@@ -39,14 +55,14 @@ export default function UsersTable() {
                                 <td>{user.phoneNumber}</td>
                                 <td>{user.password}</td>
                                 <td>{user.isActive ? 'Yes' : 'No'}</td>
-                                <td>{user.address && user.address.city}, {user.address && user.address.street}, {user.address && user.address.houseNum}</td>
+                                <td>{user.address && `${user.address.city}, ${user.address.street}, ${user.address.houseNum}`}</td>
                                 <td>
                                     {user.isActive ? (
                                         <button className="btn btn-danger mr-2" onClick={() => handleDeactivate(user.email)}>Deactivate</button>
                                     ) : (
                                         <button className="btn btn-success mr-2" onClick={() => handleReactivate(user.email)}>Reactivate</button>
                                     )}
-                                    <button onClick={() => editClient(user)} className="btn edit-button"><i className="far fa-edit mr-2"></i>Edit</button>
+                                    <button onClick={() => handleEdit(user)} className="btn edit-button"><i className="far fa-edit mr-2"></i>Edit</button>
                                 </td>
                             </tr>
                         ))}
@@ -54,6 +70,15 @@ export default function UsersTable() {
                 </table>
                 <AddUser />
             </div>
+            {editingUser && (
+                <div className="overlay">
+                    <EditUserForm
+                        user={editingUser}
+                        onSave={handleSaveEdit}
+                        onClose={handleCloseEdit}
+                    />
+                </div>
+            )}
         </div>
     );
 }
