@@ -7,12 +7,11 @@ import { useContext } from "react";
 import { UsersContext } from "../context/usersContext";
 
 
-// רשימות קבועות של ערים ורחובות
+// רשימות קבועות של ערים ורחובות לצורך ההשלמה האוטומטית
 const cities = [
     "Tel Aviv", "Jerusalem", "Haifa", "Rishon LeZion", "Petah Tikva",
     "Ashdod", "Netanya", "Beer Sheva", "Bnei Brak", "Holon"
 ];
-
 const streets = [
     "Rothschild", "Ben Yehuda", "Allenby", "Dizengoff", "Herzl",
     "King George", "Beit Habad", "Yaffo", "Bialik", "Haim Ozer"
@@ -20,24 +19,25 @@ const streets = [
 
 
 export default function Register() {
-
+    // משיכת המשתמשים מתוך היוזר-קונטקסט
     const { registerUser } = useContext<any>(UsersContext); 
 
-
+    // פונקציה לאימות הערכים שהוזנו בטופס
     function validate(values: User){
         const errors: Partial<User> = {};
       
-        // Full name must be at least 2 characters long and less than 50 characters, containing only English letters
+        // שם מלא חייב להכיל לפחות 2 ומקסימום 50 תווים. אותיות באנגלית ואמצעי ריווח בלבד
         if (!/^[A-Za-z\s]{2,50}$/.test(values.fullName)) {
             errors.fullName = 'Invalid full name';
         }
 
-        // Phone number format 05x-xxxxxxx
+        // פורמט טלפון שניתן להשתמש בו בלבד 
+        // 05x-xxxxxxx
         if (!/^(05\d)-\d{7}$/g.test(values.phoneNumber)) {
             errors.phoneNumber = 'Invalid phone number';
         }
 
-        // Birth date should be at least 18 years old
+        // תאריך לידה אמור להיות לפחות 18 שנים קודם לתאריך הנוכחי
         const today = new Date();
         const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); 
         const selectedDate = new Date(values.birthDate);
@@ -45,18 +45,16 @@ export default function Register() {
             errors.birthDateValidate = 'Invalid birth date';
         }
 
-        // Password must contain only English letters, numbers, and the following special characters: !@#$%^&*
+        // סיסמה יכולה להכיל אותיות באנגלית, מספרים וסימנים המיוחדים האלו בלבד : !@#$%^&*
         if (!/^[a-zA-Z0-9!@#$%^&*]+$/.test(values.password)) {
             errors.password = 'Invalid password';
         }
         
-        // Address validation
+        // אימות עיר ורחוב - יכול להיבחר רק מתוך הערכים של הרשימות הקבועות שהוגדרו מראש - הקלדת טקסט בלבד
         if (values.address) {
-            // City must be contained in the cities list + only text
             if (!cities.includes(values.address.city) && errors.address) {
                 errors.address.city = 'Invalid city';
             }
-            // Street must be contained in the streets list + only text
             if (!streets.includes(values.address.street) && errors.address) {
                 errors.address.street = 'Invalid street';
             }
@@ -65,6 +63,7 @@ export default function Register() {
         return errors;
     }
 
+    // אתחול אופי השדות שיש בטופס
     const loginForm = useFormik<User>({
         initialValues: {
             email: '',
@@ -80,19 +79,21 @@ export default function Register() {
                 houseNum: ''
             },
         },
+        // הפעלת פונקציה שמורה של פורמיק לאימות הפרטים
         validate,
+        // בעת לחיצה על סאבמיט - שמירת פרטי המשתמש החדש, הצגת הודעה ומעבר לדף התחברות
         onSubmit: (values) => {
             console.log(values);
             registerUser(values);
             alert("User registered successfully!");
             window.location.href = "/login";
-
         }
     })
     
     return (
         <>
           <NavBar />
+
           <section className="vh-100 ">
             <div className="container h-100 mt-3">
             <div className="row justify-content-center">
@@ -164,7 +165,6 @@ export default function Register() {
                                 {loginForm.errors.birthDateValidate && loginForm.touched.birthDate && <p className="error-message">{loginForm.errors.birthDateValidate}</p>}
                             </div>
                                 
-
                             {/* שדה כתובת (עיר,רחוב,מספר בית) */}
                             <label className="form-label">Address</label>
                             <div className="mb-5 d-flex justify-content-between">
