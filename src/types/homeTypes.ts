@@ -1,3 +1,4 @@
+// ייצוא טייפ - מאפייני קרוסלת הבאנרים בדף הבית 
 export type BannerProps = {
   image: string;
   header?: string;

@@ -1,3 +1,4 @@
+// ייצוא טייפ של משתמש - תכונות
 export type User= {
     email: string,
     fullName: string,
@@ -21,6 +22,7 @@ export type User= {
 
 }
 
+// ייצוא טייפ - היסטוריית רכישה של משתמש
 export type PurchaseHistoryType= {
     purchaseNum: number,
     items: {

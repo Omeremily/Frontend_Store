@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { ItemContext } from "../context/ItemContext";
 import '../css/shoppingCart.css';
 
+//
 export function ShoppingCart({isOpen}: ShoppingCartProps) {
 
     const { closeCart, cartItems } = useShoppingCart ();
@@ -15,10 +16,7 @@ export function ShoppingCart({isOpen}: ShoppingCartProps) {
 
     // פונקציה המתבצעת בעת לחיצה על הכפתור Checkout
     const handleCheckout = () => {
-        // כאן תוכל להוסיף פעולות נדרשות לאחר ביצוע הרכישה
-        // לדוגמה, שליחת בקשת AJAX לשרת על מנת להשלים את התשלום
-        // ולאחר מכן, הצגת הודעת הצלחה למשתמש
-        setShowSuccessAlert(true); // להציג את האזהרה לאחר ביצוע הרכישה
+        setShowSuccessAlert(true); // הצגת הודעת הצלחת הרכישה
     };
 
     return(
