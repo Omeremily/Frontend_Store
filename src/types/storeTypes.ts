@@ -42,6 +42,9 @@ export type CartItemProps = {
 }
 
 export type AddItemForm = {
-    addProductToStore: Function;
-        
+    addProductToStore: Function;       
+}
+
+export type VideoProps = {
+    src: string;
 }
