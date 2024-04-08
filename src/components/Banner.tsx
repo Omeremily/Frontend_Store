@@ -8,7 +8,7 @@ import '../css/Home.css'; // יבוא של קובץ CSS עבור הדף הראש
 import { Link } from 'react-router-dom'; // יבוא של רכיב Link מהספרייה של react-router-dom
 
 function Banner() {
-  // פונקציה מובנית בריאקט המגלילה את הדף לחלק מסוים על פי האיידי שלו
+  // פונקציה מובנית בריאקט הגוללת את הדף לחלק מסוים על פי האיידי שלו
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -18,22 +18,7 @@ function Banner() {
 
   // תכונות של הבאנרים, כולל כפתורים ולינקים
   const banners: BannerProps[] = [
-    {
-      image: img1,
-      header: "Empower Your Fitness Journey",
-      description: (
-        <>
-          Discover a range of products to enhance 
-          <br />
-          your training and health
-        </>
-      ),
-      textAlign: 'left',
-      textColor: 'rgb(138, 138, 138)',
-      showButton: true,
-      buttonText: 'Shop Now',
-      linkTo: '/store'
-    },
+    { image: img1, header: "Empower Your Fitness Journey", description: (<>Discover a range of products to enhance<br />your training and health</>),textAlign: 'left',textColor: 'rgb(138, 138, 138)',showButton: true,buttonText: 'Shop Now',linkTo: '/store'},
     { image: img2, showButton: false }, // באנר שני בלי כפתור
     { image: img3, header: "Ready to elevate your workout?", description: "Check out our exclusive hot deals", textAlign: 'right', textColor: 'rgb(100, 100, 100)', showButton: true, buttonText: 'Discover Deals', onClick: () => scrollToSection('saleItemSection') } // באנר שלישי עם כפתור שמגליל לחלק מסוים בדף
   ];
