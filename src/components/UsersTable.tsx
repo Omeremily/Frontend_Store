@@ -3,6 +3,7 @@ import { UsersContext } from '../context/usersContext';
 import AddUser from './AddUser';
 import { User } from '../types/userTypes';
 import EditUserForm from './EditUserForm';
+import NavBar from './NavBar';
 
 export default function UsersTable() {
     const { users, deactivateClient, reactivateClient } = useContext(UsersContext);
@@ -31,6 +32,7 @@ export default function UsersTable() {
 
     return (
         <div>
+            <NavBar />
             <h2 className="text-center mt-5" style={{ fontWeight: 'bold', color: 'darkgreen' }}>Users Table</h2>
             <div className="table-responsive p-5">
                 <table className="table table-bordered table-hover text-center">
