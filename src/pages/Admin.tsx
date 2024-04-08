@@ -36,7 +36,7 @@ export default function Admin() {
                 {/* הצגת קומפוננטת אופציות פעולות האדמין */}
                 <AdminNav data-test="sidebar"/>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <h1>Admin</h1>
+                    <h1 style={{ margin: '20px auto', textAlign: 'center', fontFamily: 'Open Sans, sans-serif', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Admin</h1>
                     <img src="../../public/imgs/admin.svg" alt="Admin" style={{ width: "400px" }} />
                 </div>
             </div>

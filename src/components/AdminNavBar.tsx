@@ -16,8 +16,7 @@ export default function AdminNav() {
               fontWeight: "bold",
               fontSize: "22px",
               textAlign: "center",
-              marginBottom: "20px",
-              marginTop: "20px",
+              margin: "20px auto",
             }}
             className="nav-link-custom"
           >
@@ -31,8 +30,7 @@ export default function AdminNav() {
               fontWeight: "bold",
               fontSize: "22px",
               textAlign: "center",
-              marginBottom: "20px",
-              marginTop: "20px",
+              margin: "20px auto",
             }}
             className="nav-link-custom"
           >
