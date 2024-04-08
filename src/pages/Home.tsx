@@ -8,7 +8,9 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
+      {/* נאב-בר */}
       <NavBar />
+
       {/* יצירת קרוסלת הבאנרים */}
       <div style={{
         width: '100%',
@@ -18,17 +20,21 @@ export default function Home() {
       }}>
         <Banner />
       </div>
+
+      {/* סקשיין במוצרי במבצע */}
       <div id="saleItemSection" style={{
         margin: '10% auto',
       }}>
         <SaleItemSection />
       </div>
+
+      {/* סקשיין יצירת קשר */}
       <div id="contactus">
       <Contact />
       </div>
-      <div id="footer">
+
+      {/* פוטר */}
       <Footer />
-      </div>
 
 
     </>
