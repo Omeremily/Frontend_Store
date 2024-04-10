@@ -28,7 +28,6 @@
   .banner-header {
     font-size: 1.7rem;
     margin-bottom: 20px;
-
   }
   
   /* סגנון עבור הפסקה */
@@ -51,6 +50,73 @@
 }
 
 .banner-button:hover {
+  background-color: rgb(93, 93, 93);
+  color: white;
+}
+
+#home-btm-img-container {
+  height: 57vh;
+  margin: 5% 0 10% 0;
+  position: relative; /* על מנת לאפשר את המיקום היחסי של התמונה והכפתור */
+}
+
+#home-btm-img-btn {
+  text-decoration: none;
+  font-size: 14px;
+  background-color: rgb(238, 238, 238);
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(138, 138, 138);
+  color: rgb(138, 138, 138);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.8s ease;
+  position: absolute; /* הכפתור מתנהג כאלמנט מוחלט */
+  bottom: 30%; /* מקום התחלתי של הכפתור מהתחתית */
+  left: 50%; /* מיקום אופקי מרכזי */
+  transform: translateX(-50%); /* מרכז את הכפתור על פי האופק */
+}
+
+#home-btm-img-btn:hover {
+  background-color: rgb(93, 93, 93);
+  color: white;
+}
+
+#home-btm-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#about-container {
+  margin: 12% 0;
+  height: fit-content; /* גובה הדיב יהיה כחצי גובה החלון */
+  display: flex; /* משתמשים ב־flexbox כדי להיות יכולים למקם את האלמנטים באופן יציב */
+  flex-direction: column; /* אליה כדי שהאלמנטים יופיעו בציר האנכי */
+  justify-content: center; /* ממורכז אנכית */
+  align-items: center; /* ממורכז אופקית */
+  text-align: left; /* ממורכז אופקית עבור התוכן */
+  position: relative; /* על מנת לאפשר את המיקום היחסי של הכפתור */
+  padding: 0 17%;
+}
+
+#about-btn {
+  text-decoration: none;
+  font-size: 14px;
+  background-color: rgb(238, 238, 238);
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(138, 138, 138);
+  color: rgb(138, 138, 138);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.8s ease;
+  margin-top: 20px; /* מרווח מעל הכפתור */
+  position: absolute;
+  left: 20%;
+}
+
+#about-btn:hover {
   background-color: rgb(93, 93, 93);
   color: white;
 }

@@ -33,8 +33,8 @@ export default function Contact() {
 
     return (
       <>
-          <section className="mb-5">
-              <div className="container h-100 mt-5">
+          <section>
+              <div className="container h-100">
                   <div className="row justify-content-center">
                       <div className="col-lg-12 col-xl-11">
                           <div className="card text-black" style={{ borderRadius: '25px', padding: '5px' }}>

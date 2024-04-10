@@ -17,7 +17,6 @@ type ShoppingCartContextProps = {
 
 export function ShoppingCartProvider({ children}: ShoppingCartContextProps) {
 
-
     //פתיחה וסגירה של העגלה
     const[isOpen, setIsOpen] = useState(false);
     //זשליטה על האייטמים בעגלה

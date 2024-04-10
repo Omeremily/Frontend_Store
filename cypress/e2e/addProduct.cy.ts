@@ -6,7 +6,7 @@ describe('Add Product to Store - from admin page', () => {
     // טעינת דף המנהל לאחר שהוזנו בו ערכים בסשן סטורג לפני כל בדיקה
     cy.window().then(window => {
       window.sessionStorage.setItem('admin', 'true'); // הוספת ערך בסשן סטורג שמציין שהמשתמש הוא מנהל
-      cy.visit('http://192.168.1.106:5173/Admin'); // טעינת דף המנהל
+      cy.visit('http://172.20.0.112:5173/Admin'); // טעינת דף המנהל
     });
   });
 
@@ -47,7 +47,7 @@ describe('Add Product to Store - from admin page', () => {
     });
 
     // בדיקה אם המוצר התווסף וקיים בדף החנות
-    cy.visit('http://192.168.1.106:5173/store'); // טעינת דף החנות
+    cy.visit('http://172.20.0.112:5173/store'); // טעינת דף החנות
     cy.contains('Android Smart Watch').should('exist'); // בדיקה שהמוצר התווסף בהצלחה    
 
   });

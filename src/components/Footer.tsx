@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-      <footer className="bg-light text-center text-lg-start text-muted" style={{ marginTop: "13%" }}>
+      <footer className="bg-light text-center text-lg-start text-muted" style={{ marginTop: "10%" }}>
       <hr style={{ margin: "0 auto" }} /> {/* קו המפריד דק */}
         <section className="">
           <div className="container text-center text-md-start mt-5">

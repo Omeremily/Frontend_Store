@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; // יבוא של קובץ CSS של Bootstrap
 import { Carousel } from 'react-bootstrap'; // יבוא של Carousel מהספרייה של React Bootstrap
 import img1 from "../../public/imgs/home-banner/top-view-yoga-essential-items.jpg"; // יבוא של תמונה ראשונה
-import img2 from "../../public/imgs/home-banner/A_clean_and_modern_image_of_a_male_athlete_order.png"; // יבוא של תמונה שנייה
 import img3 from "../../public/imgs/home-banner/wepik-export-20240403091022hrW7.jpeg"; // יבוא של תמונה שלישית
 import { BannerProps } from '../types/homeTypes'; // יבוא של סוג נתונים לתכונות הבאנר
 import '../css/Home.css'; // יבוא של קובץ CSS עבור הדף הראשי
@@ -19,7 +18,6 @@ function Banner() {
   // תכונות של הבאנרים, כולל כפתורים ולינקים
   const banners: BannerProps[] = [
     { image: img1, header: "Empower Your Fitness Journey", description: (<>Discover a range of products to enhance<br />your training and health</>),textAlign: 'left',textColor: 'rgb(138, 138, 138)',showButton: true,buttonText: 'Shop Now',linkTo: '/store'},
-    { image: img2, showButton: false }, // באנר שני בלי כפתור
     { image: img3, header: "Ready to elevate your workout?", description: "Check out our exclusive hot deals", textAlign: 'right', textColor: 'rgb(100, 100, 100)', showButton: true, buttonText: 'Discover Deals', onClick: () => scrollToSection('saleItemSection') } // באנר שלישי עם כפתור שמגליל לחלק מסוים בדף
   ];
 

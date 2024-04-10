@@ -16,7 +16,7 @@ export default function NavBar() {
                 backgroundColor: "#ffffff",
                 boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
             }}>
-            <Container style={{}}>
+            <Container style={{textAlign: "center", alignItems: "center"}}>
                 {/* לוגו האפליקציה עם קישור לדף הראשי */}
                 <Navbar.Brand as={NavLink} to="/">
                     <img
@@ -38,12 +38,11 @@ export default function NavBar() {
                 >
                     {/* קישורים לדפים באפליקציה */}
                     <Nav id="nav-links">
-                        <Nav.Link as={NavLink} to="/store">Store</Nav.Link>
-                        <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
                         <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+                        <Nav.Link as={NavLink} to="/store">Store</Nav.Link>
                     </Nav>
                     {/* צד ימין של הנאב-בר */}
-                    <Nav className="ml-auto">
+                    <Nav className="ml-auto align-items-center">
                         {/* כפתור העגלה עם כמות הפריטים ועם תגית הסבר צפה בעת הובר */}
                         <OverlayTrigger
                             placement="bottom"
@@ -70,11 +69,13 @@ export default function NavBar() {
                             overlay={<Tooltip id="login-tooltip">Login</Tooltip>}
                         >
                             <Nav.Link id="nav-login" as={NavLink} to="/login">
-                                <div className="user-circle-container">
+                            <div className="user-circle-container">
                                     <i className="fas fa-user-circle mr-1"></i>
                                 </div>
                             </Nav.Link>
                         </OverlayTrigger>
+                        <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
